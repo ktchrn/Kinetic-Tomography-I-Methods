@@ -1,0 +1,120 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Unmet assumptions and their potential consequences}
+\label{sec:discussion-systematics}
+
+
+The procedure described in Section Method is based on four main assumptions about the shape of the ISM in PPDV space and the relation between the two input datasets.
+The first assumption is that the distribution of the ISM, in absolute units (e.g. number of protons), in PPD and PPV space is a linear scaling of the input reddening and gas line emission cubes.
+The second assumption is that PPD and PPV cubes are projections of the same region of PPDV space, or equivalently that all the ISM contained in one is also contained in the other.
+The third assumption is that the PPV cube can be reproduced by reprojecting the PPD cube -- ``lifting'' to PPDV space and projecting the result back down -- to PPV space.
+This lift is assumed to have a simple description, a one-to-one function convolved with a Gaussian kernel in velocity space.
+The fourth assumption is that voxels in PPD space that share a $\glon$ or $\glat$ boundary have similar central line-of-sight velocities.
+
+These assumptions fail to hold, to different degrees, in the actual case we are applying the procedure to. 
+The reddening-to-matter and $\atomHI$- and CO-to-matter conversion is not a single linear relationship due to both variations in physical quantities such as the dust-to-gas ratio and non-linearities in the transfer function from amount of matter to amount of reddening or flux (e.g. $\atomH$ self-absortion). 
+The PPV cube includes matter on the far side of the Galaxy while the PPD cube stops at or before the level of the Galactic center.
+The PPV cube can not be a reprojection of the PPD cube if the two are not tracing the same matter. 
+Furthermore, there will be voxels in the PPD cube where the lift to PPDV space is not the simple one we have assumed.
+Finally, since the velocity field of the ISM does not have to be smooth or even continuous, the first due to the influence of departures from axisymmetry such as the Galactic bar and the second due to the fact that the ISM can contain shocks.
+
+Despite the many ways in which these assumptions can and do break, we have been able to empirically confirm that the solution is, in many places, correct (see Section \ref{sec:KT-validation}). 
+Evidently, the KT procedure is robust to some bending of the assumptions.
+Judging by the clustering of outlier HMSFRs in the inner Galaxy, there are some parts of the Galaxy where the assumptions are bent enough to start to cause problems.
+In particular, the inner Galaxy is particularly likely to have mismatches between the PPD and PPV and complicated, rapidly spatially variable velocity fields.
+Even there, KT does not completely and utterly fail -- the error rate is $\sim 30 \%$, not $\sim 100 \%$.
+The inner Galaxy falls into a gray region in the parameter space of assumption bending where there is just enough of it to noticeably, but not absolutely, degrade the solution quality.
+
+The 30\% mentioned above is the error rate specifically among PPD voxels that contain HMSFRs, which are not necessarily typical voxels. 
+The error rate of an arbitrary inner Galaxy voxel could potentially be quite different. 
+While we may expect the error rate of a voxel that contains an HMSFR and others near it to be similar, this is merely a heuristic argument.
+This argument is also not useful for parts of the space that are not near HMSFRs.
+The HMSFRs are all in dense molecular gas within a few tens of parsecs of the Galactic plane, meaning that there is very little we can say about the error rate in diffuse gas, especially at high Galactic latitudes. 
+
+To get a quantitative and more generally applicable estimate of the error rate, we would need either a less density-biased set of independent $\vlos(\glon, \glat, d)$ measurements or a set of artificial injection tests. 
+By an "artificial injection test", we mean a numerical experiment in which we artificially observe a model galaxy's ISM, reconstruct the $\vlos$ field from these artificial observations using KT, and compare the reconstructed and input model $\vlos$ fields. 
+To the best of our knowledge, there are no currently available catalogs of these sorts of less density-biased measurements, ruling out option one.
+The steps involved in artificial injection tests, particularly simulating galaxies at sufficiently high resolution for our purposes and producing artificial observations in a way that includes the non-trivial systematics in the actual observations, are complicated enough to put option two beyond the scope of this work.
+
+Both of these options are plausible directions for future work. 
+The 1.527 $\mu$m diffuse interstellar band (DIB), for instance, has been mapped over much of the northern sky by the APOGEE survey \citep{2015ApJ...798...35Z}. 
+Observations of this DIB towards APOGEE stars with known distances could potentially be used to build catalogs or even maps of $\vlos(\glon, \glat, d)$ using an independent dataset. 
+Artificial injection tests are conceptually straightforward, though they do require a substantial investment of time and computational resources.
+While neither option is easy, we would argue that some combination of the two will be necessary before the KT-derived $\vlos$ map can be trusted away from the HMSFRs of \Reid.
+
+\subsection{Implications of large-scale streaming motions for measurements of Galactic and solar parameters}
+\label{sec:discussion-plausibility}
+%paragraph 1
+When we fit for Galactic and solar parameters, we are systematics dominated.
+
+%paragraph 2
+We are systematics dominated because large-scale streaming motions are high-magnitude and big compared to the size of the region we're using, and we're not modeling this.
+
+%paragraph 3
+We have established that at least the line-of-sight component of motion of the HMSFRs is correctly reproduced in our 3D maps, so we should have the equivalent of line-of-sight obs of densely spaced HMSFRs. 
+Why, then, do we find that we're systematics dominated while \citet{Reid} do not?
+%do I have to fit rotation curves & RGC & solar motions to subsets of Reid. is this what it's come to
+Three possible solutions: we don't actually match that well; \citet{Reid} doesn't have enough signal-to-noise, basically, to be systematics dominated; a dynamical conspiracy due to which the HMSFRs are preferentially found in a specific part of a streaming motion, as a result of which their kinematics aren't hella biased. 
+Given Figure \ref{fig:maser_comparison}, it clearly isn't the first solution.
+Let's explore the other two.
+
+%paragraph 4
+First, the pessimistic option: \citet{Reid} makes measurements that aren't wildly biased because they don't have enough SNR to be systematics dominated.
+%thing I could do: figure out the sigma_R**2 + sigma_Phi**2 at which my uncertainties and theirs are the same
+Could be true either in the direct sense, meaning \emph{measurement} uncertainties are too high, or in an indirect, kinda physical sense, meaning the velocity dispersion of HMSFRs over the large-scale streaming motions is large compared to the typical magnitude of the large-scale streaming motions themselves. 
+%NB (kind of supported by Figure \ref{fig:maser_pie}).
+
+%paragraph 5
+Second, the optimistic option: \citet{Reid} make measurements that aren't wildly biased because the HMSFRs are preferentially located in a specific dynamical state. 
+For example, if HMSFRs preferentially sat "between" large-scale streaming motions, i.e. along the line/surface where the residual from flat/otherwise simple rotation goes from negative to positive, then there wouldn't be much of a systematic deviation.
+That example is very obviously not the case --- the magnitude of the residuals from flat rotation is pretty wild (up to ~20 km/sec, as stated by Reid) --- but the analogy applies. 
+% this option is very poorly explained; what preferred dynamical state could a bunch of HMSFRs with very wacky peculiar velocties be in?
+%they're all going in different directions, so it's option 1 and the answer is that the magnitude of the small-scale velocity dispersion is large enough that the effective SNR per patch is small?
+
+%what is Reid claiming, exactly?
+% mean motion, ~3 km/sec in each direction
+% total standard deviation of about 10 km/sec (v obs uncertainty + virial term) per HMSFR
+% outliers sigma-clipped out
+% this is enough to not be affected by \emph{systematic} trends in HMSFR motions
+
+%What are we claiming? 
+% We agree on point-by-point kinematics; we have lots more data; we are systematics dominated; therefore, Reid isn't right?
+
+
+%While the exact shapes and magnitudes of the streaming motions in our %velocity map depend on the assumed galactic parameters (Galactocentric %distance to the sun, rotation curve, solar motion relative to the rotation %curve), there is no choice of Galactocentric distance, rotation curve, and solar motion that can completely remove them (see Section \ref{sec:rotation_discussion} and Figure \ref{fig:six_pies}).
+%If we limit ourselves to rotation curves that are flat outside of the inner %galaxy (panels a, b, e, f of Figure \ref{fig:six_pies}), we see streaming motions on $\sim$ 1 kpc scales with magnitudes in excess of 15 km/sec. 
+%These gas motions would be perfectly reasonable if the Milky Way were an obvious grand design spiral such as M51 \citep{Meidt_2013}. 
+%Since it is not, we should first ask if they are astrophysically plausible in a more humble sort of spiral galaxy such as our own. 
+%
+%We will argue that these spatially extended, high magnitude motions are indeed plausible.
+%Within 2 kpc of the Sun, the RAVE survey has detected stellar streaming of %comparable spatial extent and magnitude (S2012). They interpret these motions as evidence of the gravitational influence of the Perseus spiral arm.
+%While the dynamics of stars and gas in s spiral potential will not %necessarily be the same, this spiral-induced stellar streaming offers a an explanation for gas streaming of an essentially appropriate magnitude.
+%
+%Streaming motions 3-5 kpc away in the inner galaxy can be associated with the dynamical influence of the Galactic bar. 
+%This interpretation is bolstered by the similarity of our non-flat rotation %curve to that of Clemens (198?), whose shape and deviation magnitude 3-5 kpc %from the Galactic center can be explained by the proximity of the bar to the first quadrant tangent points (Incorrect Rotation Curve). 
+%
+%Our rotation curve is in general also quite similar to many that have been measured by the GHASP survey (CITE). 
+%The GHASP survey used $\Halpha$ measurements to derive rotation curves for %NUMBER disk galaxies with NUMBER kpc of the Milky Way with masses ranging from NUMBER to NUMBER times the mass of the Milky Way.
+%These rotation curves often show the same sort of $\sim 15$ km/sec, $\sim 1$ kpc velocity ``corrugations'' that we see in our rotation curve. 
+%The GHASP collaboration derived separate rotation curves for the advancing and receding sides of their galaxies.
+%Often, the central radii of the velocity corrugations are slightly different on different sides of a galaxy.
+%These shifts imply that these deviations from flat rotation are caused by non-axisymmetric perturbations, such as spiral arms and/or bars.
+%
+%Combining these pieces of circumstantial intra- and extragalactic evidence, we can conclude that $\sim 1$ kpc-scale $\sim 15$ km/sec gas streaming motions in a non-grand design spiral galaxy can not immediately be dismissed as unphysical. 
+%We can also loosely associate these motions with spiral arms and the bar at large (small) and small (large) Galactocentric (heliocentric) radii.
+%
+%If these motions are real, what conclusions can we draw from them without fixing a galactic parameter set? One immediate implication of these %streaming motions is that improving the accuracy of kinematic distances will %require accounting for large-scale motions beyond the rotation curve. %Junichi+ (20??), e.g., estimated the distance distortion induced by assuming a flat rotation curve in a model galaxy non-circular HMSFRs velocities comparable to those of the Reid+09 HMSFRs. 
+%THERE ARE IMPLICATIONS
+%
+%The agreement between the gas and expanded HMFSR sample's line-of-sight velocities (see Section US WINNING) suggests that the non-circularity that the non-circularity of the HMSFR's velocities is real. 
+%An argument against that possibility appeared shortly after the publication %of Reid+ (2009), an early analysis of an a subset of the full \Reid sample, %in McMillan and Binney (2010); this argument has been repeated with some %frequency in discussions of discrepancies between Galactic parameters derived from the HMSFRs and other tracers (the usual suspect and hopefully someone else too).
+%If the HMSFRs' motions are real and due to orbital ellipticity, the argument %goes, then the implied ellipticity of their orbits is higher than that of stars that are young but already out of their birth clouds. 
+%Since HMSFRs are temporaly closer to collisional, and hence dynamically %colder, dense gas than the collisionless, and hence dynamically hotter, young stars, this dynamical state of things is not physically plausible. 
+%McMillan and Binney (2010) suggest some alternatives, including a bias %towards bluer line-of-sight velocities, to reduce the required orbital %ellipticity and bring the velocity dispersions of the two ostensibly similar populations closer together.
+%
+%The agreement between the expanded HMSFR sample's line-of-sight velocities and our (completely independently) derived map suggests that the HMSFRs deviations from flat rotation are real and not due to measurement biases.
+%The spatial scale and similarity to spiral- and bar-induced streaming of non-circular motions in our map also suggests a resolution to the velocity %dispersion inconsistency. The HMSFRs are moving coherently, with the gas %they are embedded in, rather than randomly. Once the gas and the embedded HMSFRs leave the perturbations they are currently passing through, their apparent velocity dispersion as a population will presumably fall to something closer to that of the current generation of young stars.
+%
+%Conversely, the McMillan and Binney argument and the agreement between the HMSFR velocities and our map combine into yet another piece of circumstantial evidence in favor of our streaming motions being associated with spiral- and bar-induced perturbations. 
+%If interpreting the HMSFR motions as stable elliptical orbits is out of the question, then interpreting the (if anything dynamically even colder) gas motions as stable elliptical motions must be even less acceptable.
