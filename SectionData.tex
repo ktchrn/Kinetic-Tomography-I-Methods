@@ -11,7 +11,7 @@ The 21-cm line can become optically thick, meaning equation \ref{XHI} underestim
 We trace molecular gas here using the 115 GHz 1-0 rotational transition of CO. The integral of this emission line can be converted to total hydrogen column CITE using
 
 \begin{equation}\label{XCO}
-X_{CO} = .
+X_{CO} = 2.0 \times 10^{20} \rm cm^{-2} \frac{ \int T_B dv}{\rm K~km/s}
 \end{equation}
 
 This conversion factor has number of known weaknesses, stemming from much more complex excitation and opacity effects, as well as real variation in relative population of CO and $H_2$ molecules. We will address the impacts of these weaknesses in \S \ref{sec:validation}. 
@@ -28,7 +28,7 @@ These two maps are then combined using the above equations \ref{XHI} and \ref{XH
 Our extinction cube is derived entirely from the \cite{Green_2015} reddening data. \citet{Green_2015} use PanSTARRS photometry of 800 million stars to infer the cumulative reddening along the line of sight in 6.8$^\prime$ (NSIDE=512 HEALPix) pixels. The distance information provided by the \cite{Green_2015} map is in steps of half a distance modulus, from 63 pc to 63 kpc. We regrid these data onto the \cite{Dame_2001} $l-b$ grid, and difference them in distance to find the reddening between each distance modulus. This is then converted to a $N_H$ using the factor measured in \cite{Peek_2013}, 
 
 \begin{equation}
-N_H = E\left(B-V\right) 7 \times 10^{21}.
+N_H = E\left(B-V\right) 7 \times 10^{21} \frac{\rm cm^{-2} }{\rm mag}. 
 \end{equation}
 
 
