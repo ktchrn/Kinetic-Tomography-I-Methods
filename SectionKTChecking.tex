@@ -1,33 +1,26 @@
 \subsection{Checking the KT solution}
 \label{sec:KT-validation}
 
-The \Reid{} HMSFRs (see Section DATA.3) are embedded in and, presumably, moving with dense molecular gas, and can therefore serve as point-probes of the ISM's velocity field. 
-By comparing the HMSFRs' observed line-of-sight velocities to those a given technique assigns to their locations in PPD space, we can determine the accuracy of that technique. 
-By comparing the accuracies of the regularized and unregularized KT solutions, we can get a sense of the effectiveness of our regularization scheme. 
-By comparing the accuracy of both KT solutions to that of the CITE CLEMESN non-flat rotation curve, we can get a sense of how much accuracy moving beyond axisymmetry can add to our description of the ISM. 
+The \Reid{} HMSFRs (see Section DATA.3) are embedded in and, presumably, moving with dense molecular gas and can therefore serve as point-probes of the ISM's velocity field. 
+{\bf REVISE NEXT SENTENCE} By comparing the HMSFRs' observed line-of-sight velocities to those a given KT technique assigns to their locations in PPD space, we can determine the accuracy of that technique.
+By comparing the relative accuracies of the regularized and unregularized KT solutions, we can get a sense of the effectiveness of our regularization scheme.
 
-While the $\glon$ and $\glat$ of an HMSFR from \Reid{} are known to effectively arbitrary precision, its distance is only known to within about 10\%. 
+{\bf REVISE THIS PARAGRAPH; SMOOTHER TRANSITION; DISTRIBUTION MENTIONED EARLIER; MAYBE AN EQUATIONS}
+While the $\glon$ and $\glat$ of an HMSFR from \ are known to effectively arbitrary precision, its distance is only known to within about 10\%. 
 To take this distance uncertainty into account when assigning a line-of-sight velocity to an HMSFR based on a KT solution, we take an average, weighted by the HMSFRs distance probability density function, of the KT solution's $\vlos(d)$ profile towards the HMSFR's $\glon$ and $\glat$. 
 A similar procedure gives us an estimate of the uncertainty, expressed as a standard deviation, of this $\vlos$ value. 
 When computing the line-of-sight velocity of an HMSFR according to a rotation curve, we ignore this distance uncertainty and simply use the best-fit distance. 
 
-We show a comparison of the HMSFRs' measured line-of-sight velocities and line-of-sight velocities assigned based on the CITET CLEMENS rotation curve, unregularized KT, and regularized KT in Figure (maser comp). 
+{\bf USE CLEMENS; PUT IN THAT IT'S MAYBE A MORE ACCURATE DESCRIPTION OF THE MOTION OF THE ISM IN THE FIRST QUADRANT AS USED BY, E.G. ROMAN-DUVAL (THE ONE ABOUT THE MOLECULAR FRACTION)}
+
+In Figure {\bf MASER COMP}, we show a comparison of the HMSFRs' measured line-of-sight velocities and line-of-sight velocities assigned based on the CITET CLEMENS rotation curve, unregularized KT, and regularized KT.
 There is a very clear improvement from a rotation-curve to either version of KT and a slight but noticeable improvement from unregularized to regularized KT. 
 To get a crude quantitative estimate of the effect of regularization, we can compute the reduced $\chi$-squared values of the two sets of velocity estimates. 
 If we assume the regularization parameter counts against the number of degrees of freedom, the reduced $\chi$-squared values of the unregularized and regularized KT solutions are 5 and 3, respectively. 
 
 Much of the total discrepancy between the regularized KT solution and the HMSFR measurements is driven by 5 catastrpphic outliers. 
 If we remove these 5 outliers, leaving 94 HMSFRs, the reduced $\chi$-squared values of the unregularized and regularized KT solutions drop to 4 and 1.3, respectively. 
-We consider the advantage of regularzied over unregularized KT to be sufficient to adopt the regularized KT solution as \emph{the} KT solution, and will refer to it as such below.
+We consider the advantage of regularized over unregularized KT to be sufficient to adopt the regularized KT solution as \emph{the} KT solution, and will refer to it as such below.
 
 At the positions of 94 of 99 HMSFRs, at least, KT performs remarkably well. 
 Next, we discuss the 5 catastrophic outliers.
-
-%We have used the unregularized and regularized versions of the kinetic tomography technique to derive PPPV 4-cubes for the region of the galactic plane with $0^\circ < \ell < 220^\circ$ and $-10^\circ < b < 10^\circ$. %We will refer to these two solutions by the names of their methods, i.e. as the UKT and RKT solutions.
-%These solutions can be thought of as either one 4-cube of the ISM density in PPPV space or as a set of three 3-cubes of ISM density, central velocity ($v_{los}$), and velocity dispersion in PPP space. One benefit of the ``three 3-cubes'' representation is that the accuracy of each of the three 3-cubes can be checked separately. The accuracy of the 3-cube of ISM density map is discussed in Schlafly+. In this section, we check the accuracy of the unregularized and regularized $v_{los}$ 3-cubes against the R14 dataset, which is described in section \ref{sec:data-HMSFR}. We find that both $v_{los}$ 3-cubes represent clear improvements over flat and \cite{Clemens_1985} rotation curves, and that the regularized solution is statistically consistent with the R14 measurements, with the exception of a handful of outliers. 
-
-%The quantities we are comparing are the line-of-sight velocity of high-mass star forming regions (HMSFR) from R14 with the $v_{los}$ 3-cube evaluated at the $\ell$, $b$, and distance of the HMSFRs. To compute the central velocity from the $v_{los}$ 3-cube, we take the $v_{los}$ profile of the $\ell$, $b$ cell that contains a HMSFR, linearly interpolate $v_{los}$ between the centers of the distance bins, and evaluate this piecewise linear $v_{los}$ profile at the distance of the HMSFR given by R14. We estimate the uncertainty of this velocity by propagating the distance uncertainty of the HMSFR to a $v_{los}$ uncertainty. This distance-derived uncertainty is added in quadrature with the radial velocity uncertainty quoted for the HMSFR in R14. The typical magnitude of this total uncertainty is 3-10 km/sec; Figure (HMSFR on profile) shows an HMSFR for which this uncertainty is particularly large. We also compute the $v_{los}$ predicted for each HMSFR by the \citet{Clemens_1985} rotation curve using the same procedure; we refer to these $v_{los}$ values as the \Clemens values. 
-
-%Figure (maser comp) compares the R14 measured HMSFR $v_{los}$ to the \Clemens, unregularized, and regularized $v_{los}$ values. There is a clear improvement in agreement from the \Clemnens to the unregularized, and from the unregularized to the regularized $v_{los}$. The unregularized $v_{los}$ captures the full amplitude of the discrepancy between the R14 measurements and a flat rotation curve while \Clemens rotation curve does not. As the regularized solution is clearly superior to the unregularized solution, we devote the rest of the text to discussing the regularized solution, and consider it our best measurement of the $v_{los}$ 3-cube.
-
-%For a more quantitative assessment, we can analyze the distribution of \emph{standardized residuals} -- residuals divided by uncertainties. This distribution is shown in Panel (a) of Figure (5). For comparison, the figure also shows a normal distribution with mean zero and standard deviation one, a \emph{standard normal} distribution. If the uncertainties are accurate and errors are normally distributed, the standardized residuals should be a drawn from the standard normal distribution. Of the 99 HMSFRs that fall within our $\ell$ and $b$ range, 5 have residuals that are more than three standard deviations away from zero; we discuss these six in section \ref{sec:discussion-catastrophic}. The standardized residuals of the remaining 94 objects are consistent with being drawn from the standard normal distribution.  We discuss what this means for the more global accuracy of the regularized solution in section \ref{sec:discussion-systematics}. 
