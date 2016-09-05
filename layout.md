@@ -4,6 +4,7 @@ figures/gas_compare3/gas_compare3.png
 SectionData.tex
 figures/KT_method_diagram_paper3/KT_method_diagram_paper3.png
 SectionKTMethods.tex
+figures/maser_comparison/maser_comparison.png
 figures/maser_pie_ann/maser_pie_ann.png
 SectionKTChecking.tex
 figures/maser_pie/maser_pie_ann.png
