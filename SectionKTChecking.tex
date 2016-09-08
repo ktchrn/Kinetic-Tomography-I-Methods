@@ -1,25 +1,36 @@
 \subsection{Checking the KT solution}
 \label{sec:KT-validation}
+The \Reid{} HMSFRs (see Section DATA.3) are embedded in and, presumably, moving with dense molecular gas.
+The $\vlos$ of an HMSFR should therefore be similar to the $\vlos$ of the ISM at the HMSFR's location in PPD space.
+We can use this property to check the accuracy of our KT-derived $\vlos(\glon, \glat, d)$ fields by comparing the HMSFRs' observed $\vlos$ to the $\vlos$ KT assigns to the HMSFRs' $\glon$, $\glat$, and $d$ values. 
+In this section, we make this comparison for the $\vlos(\glon, \glat, d)$ fields associated with a flat (i.e. radially constant) rotation curve, a non-flat rotation curve from \citet{Clemens}, unregularized KT, and regularized KT. 
 
-The \Reid{} HMSFRs (see Section DATA.3) are embedded in and, presumably, moving with dense molecular gas and can therefore serve as point-probes of the ISM's velocity field. 
-{\bf REVISE NEXT SENTENCE} By comparing the HMSFRs' observed line-of-sight velocities to those a given KT technique assigns to their locations in PPD space, we can determine the accuracy of that technique.
-By comparing the relative accuracies of the regularized and unregularized KT solutions, we can get a sense of the effectiveness of our regularization scheme.
+We need to propagate the uncertainty on the distance to an HMSFR when comparing the HMSFR's observed $\vlos$ to a $\vlos(\glon, \glat, d)$ field.
+The typical uncertainty on the parallax of a \Reid{} HMSFR is between $5$ and $10\%$ and is reported as a mean value and a standard deviation i.e. is implicitly assumed to be Gaussian. 
+Following the discussion in \citet{Bovy2009}, we assume that this Gaussian uncertainty propagates to an equivalent Gaussian uncertainty on the distance.
+We assign a $\vlos$ value $\mu_{i}$ and standard deviation $\sigma_{i}$ to an HMSFR $i$ by drawing possible distance values $d_j$ from $p_i(d)$, computing $\vlos(\glon_{i}, \glat_{i}, d_j)$ for each draw, and computing the mean and standard deviation of these $\vlos(\glon_{i}, \glat_{i}, d_j)$ values. 
 
-{\bf REVISE THIS PARAGRAPH; SMOOTHER TRANSITION; DISTRIBUTION MENTIONED EARLIER; MAYBE AN EQUATIONS}
-While the $\glon$ and $\glat$ of an HMSFR from \ are known to effectively arbitrary precision, its distance is only known to within about 10\%. 
-To take this distance uncertainty into account when assigning a line-of-sight velocity to an HMSFR based on a KT solution, we take an average, weighted by the HMSFRs distance probability density function, of the KT solution's $\vlos(d)$ profile towards the HMSFR's $\glon$ and $\glat$. 
-A similar procedure gives us an estimate of the uncertainty, expressed as a standard deviation, of this $\vlos$ value. 
-When computing the line-of-sight velocity of an HMSFR according to a rotation curve, we ignore this distance uncertainty and simply use the best-fit distance. 
+In Figure {\bf MASER COMP}, we show a comparison of the HMSFRs' observed $\vlos$ values and $\vlos$ values assigned based on the \citet{Clemens} rotation curve, unregularized KT, and regularized KT.
+All values are shown with the $\vlos$ assigned based on a flat rotation curve subtracted off.
+From the range of the $y$-axis, it should be obvious that the HMSFRs' line-of-sight velocities are  poorly described by a flat rotation curve.
+The \citet{Clemens} rotation curve provides a slightly better description of the HMSFRs' line-of-sight velocities.
+The signs of the observation-based and \citet{Clemens}-derived residuals from a flat rotation curve are similar; the magnitudes of the residuals, however, are quite different.
+Either version of KT is quite clearly more accurate than either rotation curve.
+The signs and the magnitudes of the KT-derived residuals are similar to the observation-based residuals.
+There is a slight improvement from unregularized to regularized KT.
+This improvement is mostly a reduction in the amount of scatter away from the correct residual magnitude. 
 
-{\bf USE CLEMENS; PUT IN THAT IT'S MAYBE A MORE ACCURATE DESCRIPTION OF THE MOTION OF THE ISM IN THE FIRST QUADRANT AS USED BY, E.G. ROMAN-DUVAL (THE ONE ABOUT THE MOLECULAR FRACTION)}
+To get a crude quantitative estimate of this improvement, we can compute the reduced $\chi^2$ values of the two sets of velocity estimates. 
+The reduced $\chi^2$ value is given by the expression
+\begin{equation}
+\chi^2 = \frac{1}{\rm{dof}} \sum_i^{\rm{# of HMSFRs}} \left(\frac{\vlos_i - \mu_i}{\sigma_i} \right)^2, 
+\end{equation}
+where $\rm{dof}$ is the number of degrees of freedom in the problem.
+If the uncertainties are Gaussian and correctly estimated, the reduced $\chi^2$ value should be approximately equal to 1.
+If we assume the regularization parameter counts against the number of degrees of freedom, the reduced $\chi^2$ values of the unregularized and regularized KT solutions are 5 and 3, respectively.
 
-In Figure {\bf MASER COMP}, we show a comparison of the HMSFRs' measured line-of-sight velocities and line-of-sight velocities assigned based on the CITET CLEMENS rotation curve, unregularized KT, and regularized KT.
-There is a very clear improvement from a rotation-curve to either version of KT and a slight but noticeable improvement from unregularized to regularized KT. 
-To get a crude quantitative estimate of the effect of regularization, we can compute the reduced $\chi$-squared values of the two sets of velocity estimates. 
-If we assume the regularization parameter counts against the number of degrees of freedom, the reduced $\chi$-squared values of the unregularized and regularized KT solutions are 5 and 3, respectively. 
-
-Much of the total discrepancy between the regularized KT solution and the HMSFR measurements is driven by 5 catastrpphic outliers. 
-If we remove these 5 outliers, leaving 94 HMSFRs, the reduced $\chi$-squared values of the unregularized and regularized KT solutions drop to 4 and 1.3, respectively. 
+Most of the discrepancy between the regularized KT solution and the HMSFR measurements is driven by 5 catastrophic outliers. 
+If we remove these 5 outliers, leaving 94 HMSFRs, the reduced $\chi^2$ values of the unregularized and regularized KT solutions drop to 4 and 1.3, respectively. 
 We consider the advantage of regularized over unregularized KT to be sufficient to adopt the regularized KT solution as \emph{the} KT solution, and will refer to it as such below.
 
 At the positions of 94 of 99 HMSFRs, at least, KT performs remarkably well. 
