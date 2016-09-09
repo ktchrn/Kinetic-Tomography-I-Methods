@@ -73,7 +73,7 @@ This is the \emph{unregularized} objective function; hence the subscript $u$ in 
 We will introduce the \emph{regularized} objective function later on. 
 
 We optimize $\mathcal{L}_u$ by varying the entries of $\vlos(x, y, i)$ and $\sigma_v(x, y, i)$. 
-We restrict $\sigma_v(x, y, i)$ to be between $1$ and $15\text{ km sec}^{-1]$. 
+We restrict $\sigma_v(x, y, i)$ to be between $1$ and $15\text{ km sec}^{-1}$. 
 The lower bound is set to be slightly smaller than $\Delta v$, which in this case is $1.4 \text{ km sec}^{-1}$, as there is very little difference between pixel-convolved Gaussians with standard deviations smaller than $\Delta v$. 
 We restrict $\vlos(x, y, i)$ to be within $45 \text{ km sec}^{-1}$ of the line-of-sight velocity at $\glon_x$, $\glat_y$, and $d_i$ corresponding to the IAU-recommended $220 \text{ km sec}^{-1}$ flat rotation curve and $8.5 \text{ kpc}$ separation between the Sun and the Galactic center.
 The middle panel of Figure \ref{fig:diagram} shows a cartoon solution to the the $\mathcal{L}_u$ optimization problem. 
