@@ -55,7 +55,7 @@ where $\Delta v$ is the length of a voxel along the velocity axis.
 Equation \ref{eqn:ppv_cont} becomes
 \begin{equation}
   \label{eqn:ppv_disc}
-  m(x, y, j) = \sum_{i=0}^{\text{\# $d$ cells}} m(x, y, i, j).
+  m(x, y, j) = \sum_{i=0}^\mathclap{\text{# $d$ cells}} m(x, y, i, j).
 \end{equation}
 
 %In the introduction, we described our method for mapping the ISM in PPPV space as a kind of inversion of the usual idea of a kinematic distance. Instead of setting the distance of a voxel in a PPV cube based on the voxel's line-of-sight velocity and a rotation curve, set the velocity of a voxel in a PPP cube based on the voxel's distance and a rotation curve. Since a voxel is not a point, we need to assign it a distribution of velocites rather than a single velocity; we use a Gaussian. This operation is shown for all of the voxels along a single line of sight in Figure (first proj). If we apply this operation a large number of sightlines at a single galactic latitude, we get the $\ell$-$v$ map shown in figure (first lv). 
