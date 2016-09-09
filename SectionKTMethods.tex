@@ -21,9 +21,22 @@ Thus we have reduced our original problem of finding a PPDV cube which is consis
 
 \subsection{Formalism}
 \label{sec:KT-method}
-IN THIS SECTION, WE WRITE DOWN THE MATHEMATICAL FORMALISM BEHIND OUR TECHNIQUE
-FOLLOWING THE DISCUSSION IN THE PREVIOUS SECTION, IN WHICH WE CHARACTERIZED CHARACTERIZED 
+We are looking for a $\vlos(\glon, \glat, d)$ and $\sigma_v(\glon, \glat, d)$ pair that, when combined with the observed PPD cube, best matches the observed PPV cube. 
+This is an optimization problem; an optimization problem needs an objective function; an objective function needs a quantity to compare to the data. 
+In our case, that quantity is a model PPV cube.
 
+To obtain a model PPV cube, we produce a PPDV cube and then integrate it along the distance axis. 
+Suppose that we have a matter density in PPD space, $\rho(\glon, \glat, d)$, and a $\vlos(\glon, \glat, d)$ and $\sigma_v(\glon, \glat, d)$ pair. 
+The matter density at a $\glon$, $\glat$, $d$, and $v$ in PPDV space is 
+\begin{equation}
+  \rho(\glon, \glat, d, v) = \frac{\rho(\glon, \glat, d)}{\sqrt{2 \pi \sigma_v(\glon, \glat, d)^2} 
+    \exp\left(- \frac{\left( v - \vlos(\glon, \glat, d) \right)^1}{2 \sigma_v(\glon, \glat, d)^2} \right),
+\end{equation}
+and the matter density at a $\glon$, $\glat$, and $v$ in PPV space is
+\begin{equation}
+  \rho(\glon, \glat, v) = \int_0^{d_{max}} \rho(\glon, \glat, d, v) \, \rm{d}d.
+\end{equation}
+(we apologize for the $\rm{d}d$; this is the only place where it shows up)
 
 %In the introduction, we described our method for mapping the ISM in PPPV space as a kind of inversion of the usual idea of a kinematic distance. Instead of setting the distance of a voxel in a PPV cube based on the voxel's line-of-sight velocity and a rotation curve, set the velocity of a voxel in a PPP cube based on the voxel's distance and a rotation curve. Since a voxel is not a point, we need to assign it a distribution of velocites rather than a single velocity; we use a Gaussian. This operation is shown for all of the voxels along a single line of sight in Figure (first proj). If we apply this operation a large number of sightlines at a single galactic latitude, we get the $\ell$-$v$ map shown in figure (first lv). 
 
