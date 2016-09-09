@@ -31,7 +31,7 @@ The matter density at a point, $(\glon, \glat, d, v)$, in PPDV space is
 \begin{equation}
  \label{eqn:ppdv_cont}
   \rho(\glon, \glat, d, v) = \frac{\rho(\glon, \glat, d)}{\sqrt{2 \pi \sigma_v(\glon, \glat, d)^2}} 
-    \exp\left(- \frac{\left( v - \vlos(\glon, \glat, d) \right)^2}{2 \sigma_v(\glon, \glat, d)^2} \right),
+   \, \exp\left(- \frac{\left( v - \vlos(\glon, \glat, d) \right)^2}{2 \sigma_v(\glon, \glat, d)^2} \right),
 \end{equation}
 and the matter density at a point, $(\glon, \glat, v)$, in PPV space is
 \begin{equation}
@@ -48,15 +48,61 @@ Equation \ref{eqn:ppdv_cont} becomes
 \begin{equation}
   \label{eqn:ppdv_disc}
   m(x, y, i, j) = m(x, y, i) \, \int_{v_j - \Delta v}^{v_j + \Delta v} 
- \frac{1}{\sqrt{2 \pi \sigma_v(x, y, j)^2}}
+ \frac{1}{\sqrt{2 \pi \sigma_v(x, y, j)^2}} \,
     \exp\left(- \frac{\left( v - \vlos(x, y, j) \right)^2}{2 \sigma_v(x, y, j)^2} \right)\, {\rm d}v,
 \end{equation}
 where $\Delta v$ is the length of a voxel along the velocity axis.
 Equation \ref{eqn:ppv_cont} becomes
 \begin{equation}
   \label{eqn:ppv_disc}
-  m(x, y, j) = \sum_{i=0}^\mathclap{\text{# $d$ cells}} m(x, y, i, j).
+  m(x, y, j) = \sum_{i} m(x, y, i, j).
 \end{equation}
+A cartoon representation of this procedure is shown in the top panel of Figure \ref{fig:diagram}.
+In the cartoon, $\vlos(x, y, i)$ is assumed to be set by a rotation curve; the resulting $m(x, y, i)$ does not match the cartoon PPV data.
+This mismatch is also true of the actual data.
+Assuming a rotation curve and propagating it through produces a model PPV cube which is clearly inconsistent with the observed PPV cube. 
+
+We quantify the discrepancy between a model PPV cube, $m(x, y, j)$, and the observed PPV cube , $PPV(x, y, j)$, with the objective function
+\begin{equation}
+  \label{eqn:obj_unreg}
+  \mathcal{L}_u \left(\vlos(x, y, i), \sigma_v(x, y, i) \right) = 
+  \sum_{x, y, j} \frac{1}{2} \left(PPV(x, y, j) -  m(x, y, j)\right)^2,
+\end{equation}
+the sum of square differences between the model and the observations. 
+This is the \emph{unregularized} objective function; hence the subscript $u$ in $\mathcal{L}_u$.
+We will introduce the \emph{regularized} objective function later on. 
+
+We optimize $\mathcal{L}_u$ by varying the entries of $\vlos(x, y, i)$ and $\sigma_v(x, y, i)$. 
+We restrict $\sigma_v(x, y, i)$ to be between $1$ and $15\text{ km sec}^{-1]$. 
+The lower bound is set to be slightly smaller than $\Delta v$, which in this case is $1.4 \text{ km sec}^{-1}$, as there is very little difference between pixel-convolved Gaussians with standard deviations smaller than $\Delta v$. 
+We restrict $\vlos(x, y, i)$ to be within $45 \text{ km sec}^{-1}$ of the line-of-sight velocity at $\glon_x$, $\glat_y$, and $d_i$ corresponding to the IAU-recommended $220 \text{ km sec}^{-1}$ flat rotation curve and $8.5 \text{ kpc}$ separation between the Sun and the Galactic center.
+The middle panel of Figure \ref{fig:diagram} shows a cartoon solution to the the $\mathcal{L}_u$ optimization problem. 
+Qualitative features of the cartoon such as the close match between the model and observed PPV cubes, the typical magnitudes of deviations from the rotation curve, and the spatial coherence of deviations from the rotation curve are also typical of the actual solution to the unregularized problem.
+
+This solution is not necessarily unique. 
+While we have reduced the number of parameters in the problem by making assumptions about the structure of the ISM in PPDV space, there are still situations in which different $\vlos(x, y, i)$ cubes produce equivalent $m(x, y, j)$ cubes. 
+For example, if $m(x, y, i) = m(x, y, i')$, then $\vlos(x, y, i)$ and $\vlos(x, y, i')$ are exchangable.
+There are also plenty of other, less obvious, ways in which different parts of the solution can be degenerate; we will not list them here.
+
+To deal with this problem, we introduce external information.
+The $\glon$ and $\glat$ extent of the voxels in the 3-dimensional and 4-dimensional cubes we are considering is quite small --- we resolve coherent structures such as molecular clouds. 
+We may therefore expect voxels that share a $\glon$ or $\glat$ border to have similar line-of-sight velocities.
+We encode this expectation into the objective function by adding a term penalizing large differences between the line-of-sight velocities of voxels with shared $\glon$ or $\glat$ borders:
+\begin{equation}
+  \label{eqn:obj_reg}
+  \mathcal{L}_r\left(\vlos(x, y, i), \sigma_v(x, y, i) \right) = 
+  \mathcal{L}_u \left(\vlos(x, y, i), \sigma_v(x, y, i) \right) 
+  + \frac{\lambda}{2} \sum_{x} \left( \vlos(x + 1, y, i) - \vlos(x, y, i) \right)^2
+  + \frac{\lambda}{2} \sum_{y} \left( \vlos(x, y + 1, i) - \vlos(x, y, i) \right)^2,
+\end{equation}
+where $\lambda$ is a parameter that sets the strength of the regularizing term. 
+The bottom panel of Figure \ref{fig:diagram} shows a cartoon representation of a regularized solution. 
+The regularization is represented by springs. 
+As before, the qualitative features of the cartoon are realistic. 
+The discrepancy between the model and observed PPV cube can indeed increase; we do not consider this to be a problem. 
+
+We evaluate the accuracy of the unregularized and regularized KT-derived $\vlos$ cubes in the next section. 
+For clarity, we will refer to the (still not continuous) discretized cubes as $\vlos(\glon, \glat, d)$. 
 
 %In the introduction, we described our method for mapping the ISM in PPPV space as a kind of inversion of the usual idea of a kinematic distance. Instead of setting the distance of a voxel in a PPV cube based on the voxel's line-of-sight velocity and a rotation curve, set the velocity of a voxel in a PPP cube based on the voxel's distance and a rotation curve. Since a voxel is not a point, we need to assign it a distribution of velocites rather than a single velocity; we use a Gaussian. This operation is shown for all of the voxels along a single line of sight in Figure (first proj). If we apply this operation a large number of sightlines at a single galactic latitude, we get the $\ell$-$v$ map shown in figure (first lv). 
 
