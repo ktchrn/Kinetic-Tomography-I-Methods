@@ -1,20 +1,20 @@
 \subsection{Checking the KT solution}
 \label{sec:KT-validation}
-The \Reid{} HMSFRs (see Section DATA.3) are embedded in and, presumably, moving with dense molecular gas.
+The \Reid{} HMSFRs (see \S \ref{sec:data-HMSFR}) are embedded in and, presumably, moving with dense molecular gas.
 The $\vlos$ of an HMSFR should therefore be similar to the $\vlos$ of the ISM at the HMSFR's location in PPD space.
 We can use this property to check the accuracy of our KT-derived $\vlos(\glon, \glat, d)$ fields by comparing the HMSFRs' observed $\vlos$ to the $\vlos$ KT assigns to the HMSFRs' $\glon$, $\glat$, and $d$ values. 
-In this section, we make this comparison for the $\vlos(\glon, \glat, d)$ fields associated with a flat (i.e. radially constant) rotation curve, a non-flat rotation curve from \citet{Clemens}, unregularized KT, and regularized KT. 
+In this section, we make this comparison for the $\vlos(\glon, \glat, d)$ fields associated with a flat (i.e. radially constant) rotation curve, a non-flat rotation curve from \citet{Clemens:1985dp}, unregularized KT, and regularized KT. 
 
 We need to propagate the uncertainty on the distance to an HMSFR when comparing the HMSFR's observed $\vlos$ to a $\vlos(\glon, \glat, d)$ field.
 The typical uncertainty on the parallax of a \Reid{} HMSFR is between $5$ and $10\%$ and is reported as a mean value and a standard deviation i.e. is implicitly assumed to be Gaussian. 
-Following the discussion in \citet{Bovy2009}, we assume that this Gaussian uncertainty propagates to an equivalent Gaussian uncertainty on the distance.
+Following the discussion in \citet{2009ApJ...704.1704B}, we assume that this Gaussian uncertainty propagates to an equivalent Gaussian uncertainty on the distance.
 We assign a $\vlos$ value $\mu_{i}$ and standard deviation $\sigma_{i}$ to an HMSFR $i$ by drawing possible distance values $d_j$ from $p_i(d)$, computing $\vlos(\glon_{i}, \glat_{i}, d_j)$ for each draw, and computing the mean and standard deviation of these $\vlos(\glon_{i}, \glat_{i}, d_j)$ values. 
 
-In Figure {\bf MASER COMP}, we show a comparison of the HMSFRs' observed $\vlos$ values and $\vlos$ values assigned based on the \citet{Clemens} rotation curve, unregularized KT, and regularized KT.
+In Figure \ref{fig:hmsfr_comparison}, we show a comparison of the HMSFRs' observed $\vlos$ values and $\vlos$ values assigned based on the \citet{Clemens:1985dp} rotation curve, unregularized KT, and regularized KT.
 All values are shown with the $\vlos$ assigned based on a flat rotation curve subtracted off.
 From the range of the $y$-axis, it should be obvious that the HMSFRs' line-of-sight velocities are  poorly described by a flat rotation curve.
-The \citet{Clemens} rotation curve provides a slightly better description of the HMSFRs' line-of-sight velocities.
-The signs of the observation-based and \citet{Clemens}-derived residuals from a flat rotation curve are similar; the magnitudes of the residuals, however, are quite different.
+The \citet{Clemens:1985dp} rotation curve provides a slightly better description of the HMSFRs' line-of-sight velocities.
+The signs of the observation-based and \citet{Clemens:1985dp}-derived residuals from a flat rotation curve are similar; the magnitudes of the residuals, however, are quite different.
 Either version of KT is quite clearly more accurate than either rotation curve.
 The signs and the magnitudes of the KT-derived residuals are similar to the observation-based residuals.
 There is a slight improvement from unregularized to regularized KT.
@@ -33,5 +33,4 @@ Most of the discrepancy between the regularized KT solution and the HMSFR measur
 If we remove these 5 outliers, leaving 94 HMSFRs, the reduced $\chi^2$ values of the unregularized and regularized KT solutions drop to 4 and 1.3, respectively. 
 We consider the advantage of regularized over unregularized KT to be sufficient to adopt the regularized KT solution as \emph{the} KT solution, and will refer to it as such below.
 
-At the positions of 94 of 99 HMSFRs, at least, KT performs remarkably well. 
-Next, we discuss the 5 catastrophic outliers.
+At the positions of 94 of 99 HMSFRs, KT performs remarkably well. 
