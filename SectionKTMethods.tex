@@ -1,22 +1,21 @@
 \section{Kinetic tomography}
 \label{sec:KT}
 We have developed a procedure for deriving the distribution of interstellar matter in position-position-distance-velocity (PPDV) space from measurements of its distribution in position-position-distance (PPD) and position-position-velocity (PPV) space. 
-The technical term for deriving a multi-dimensional distribution from lower-dimensional measurements is tomographic reconstruction; in this context, lower-dimensional measurements are called projections. 
+The technical term for deriving a multi-dimensional distribution from lower-dimensional measurements is \emph{tomographic reconstruction}; in this context, lower-dimensional measurements are called projections. 
 As should be intuitively clear, tomographic reconstruction from two projections is, in general, not possible -- there are many more independent variables than observational constraints. 
 Our procedure for solving our specific case of the tomographic reconstruction problem is based around exploiting some simplifying assumptions about the structure of the ISM in PPDV space to reduce the number of independent variables.
 
-For motivation, we first examine the structural assumptions behind a common technique for finding solutions to the even more underdetermined problem of reconstructing a PPDV-space ISM distribution from PPV-space measurements alone. 
-The  technique we are referring to here is the widely known kinematic distance method (e.g. \citealt{Levine_2006}), which assigns distances to observed line-of-sight velocities based on an assumed Galactic rotation curve and geometry. 
-While the kinematic distance technique is usually presented as a way of converting PPV-space distributions to PPD-space, rather than PPDV-space, distributions, its underlying assumptions make the two equivalent. 
+For motivation, we first examine the structural assumptions behind a common technique for reconstructing a PPDV-space ISM distribution from PPV-space measurements alone. 
+The  technique we are referring to here is the widely known kinematic distance method (e.g. \citealt{Levine_2006}), which assigns distances to observed line-of-sight velocities based on an assumed rotation curve and Galactic geometry. 
+While the kinematic distance method is usually presented as a way of converting a PPV-space distribution to a PPD-space, rather than PPDV-space, distribution, the two are equivalent according to the kinematic distance method's underlying assumptions.
 These assumptions can be combined into a single statement: (1) a location in PPD space can be assigned a single line-of-sight velocity (2) according to an assumed rotation curve and Galactic geometry. 
-From these assumptions it follows that knowing the PPD-space distribution of the ISM is equivalent to knowing its PPDV-space distribution. 
+From these assumptions, it follows that knowing the PPD-space distribution of the ISM is equivalent to knowing its PPDV-space distribution. 
 
-We have PPD-space measurements in addition to PPV-space measurements, allowing us to make a more relaxed version of this assumption. 
-Our version is that (1) a parcel of interstellar matter in PPD space can be assigned a Gaussian distribution of line-of-sight velocities (2) whose center is within a fixed range of the line-of-sight velocity predicted by an assumed rotation curve and Galactic geometry. 
-Here, a "parcel" of interstellar matter refers to the contents of a single PPD voxel. 
-For each voxel in observed PPD cube, we aim to assign a central line-of-sight velocity $\vlos$ and a line-of-sight Gaussian velocity width $\sigma_v$. 
+We have PPD-space measurements in addition to PPV-space measurements, allowing us to relax these assumptions. 
+Our version is that (1) a parcel of interstellar matter in PPD space can be assigned a Gaussian distribution of line-of-sight velocities (2) whose center is within a fixed range of the line-of-sight velocity predicted by an assumed rotation curve and Galactic geometry; here, a "parcel" of interstellar matter refers to the contents of a single PPD voxel. 
+For each voxel in a PPD cube, we aim to assign a central line-of-sight velocity $\vlos$ and a line-of-sight Gaussian velocity width $\sigma_v$. 
 With these assumptions, a description of the ISM in PPDV space consists of a description of its PPD-space distribution (the observed PPD cube), a line-of-sight central velocity cube in PPD space ($\vlos(\glon, \glat, d)$), and a line-of-sight velocity width cube in PPD space ($\sigma_v (\glon, \glat, d)$). 
-Thus we have reduced our original problem of finding a PPDV cube which is consistent with our observed PPD and PPV cubes to finding a $\vlos(\glon, \glat, d)$ and $\sigma_v(\glon, \glat, d)$ pair consistent with our PPV observations.
+Thus, we have reduced our original problem of finding a PPDV cube which is consistent with our observed PPD and PPV cubes to finding a $\vlos(\glon, \glat, d)$ and $\sigma_v(\glon, \glat, d)$ pair consistent with our PPV observations.
 
 
 \subsection{Formalism}
