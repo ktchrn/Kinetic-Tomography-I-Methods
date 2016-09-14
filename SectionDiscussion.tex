@@ -2,37 +2,40 @@
 \label{sec:discussion}
 
 \subsection{Unmet assumptions and their potential consequences}
+\lable{sec:discussion-qualitative}
+WE'RE TALKING ABOUT FIGURE \ref{fig:maser_pie} A BUNCH HERE
+
+2D AND QUALITATIVE STRUCTURE: IT PASSES A SMELL TEST IN THAT IT'S NOT JUST FINGERS OF GOD; THERE'S COHERENT STRUCTURE ON SCALES BEYOND WHAT SHOULD BE DOMINATED BY OUR REGULARIZATION SCHEME. COMPARISON TO KNOWNS: BRAND&BLITZ 2D, TYPICAL SCALE OF LARGE-SCALE FLUCTUATIONS FROM CLEMENS, BOVY.
+
+3D STRUCTURE AND THE (LESS) KNOWN: TWO SETS OF DIFFERENCES --- 2D TO OUR 3D; OUR 3D TO HMSFRS. FIRST SET TELLS YOU THERE'S SUBSTANTIAL SMALL-SCALE VELOCITY VARIATION, AT LEAST IN THE VERTICAL SCALE; SECOND SET TELLS YOU THIS FLUCTUATION IS, WHERE WE HAVE CHECKS, FOR THE MOST PART CORRECT. 
+
 \label{sec:discussion-systematics}
+Our treatment of the data, our parametrization of the 4-dimensional structure of the ISM, and our regularization scheme are all based on assumptions that almost certainly do not hold over some part of the solution domain. 
+We convert our data, distributions of reddening, \atomH{} emission, and \CO emission, to distributions of absolute matter content in PPV and PPD space assuming there is a single, linear function relating the amount of each tracer to an amount of matter.
+Due to variations in the dust-to-gas and \CO-to-\molH ratios and radiative transfer effects such as self-absorption, these functions are neither uniqiuely defined nor linear. 
+We have implicitly assumed that the PPD and PPV cubes are projections of the same part of the same PPDV cube. 
+This is quite obviously not the case --- the PPV cube is an integral of the PPDV cube to an effectively infinite distance while the most distant well-measured voxels in the PPD cube are only 10 kpc away from the Sun.
+Our parametrization of the 4-dimensional structure of the ISM assumes that the ISM's velocity distribution within a PPD voxel can be described by a mean, which is close to the value of the Galactic rotation curve at the voxel's center, and a dispersion.  
+This will not be true for a voxel that contains a shock or is large compared to the spatial scale of velocity fluctuations; because our distance resolution is constant in log space, this is effect will apply to all voxels beyond some distance. 
+Our regularization scheme assumes that the velocity distributions of voxels with shared $\glon$ or $\glat$ boundaries will be similar. 
+This will once again not be true of voxels that cross shocks or are sufficiently large. 
 
-The procedure described in Section \ref{sec:KT} is based on two assumptions about the shape of the ISM in PPDV space and the relation between the two input datasets.
-The first assumption is that the distribution of the ISM, in absolute units (e.g. number of protons), in PPD and PPV space is a linear scaling of the input reddening and gas line emission cubes.
-The second assumption is that PPD and PPV cubes are projections of the same region of PPDV space, or equivalently that all the ISM contained in one is also contained in the other.
-The third assumption is that the PPV cube can be reproduced by reprojecting the PPD cube -- ``lifting'' to PPDV space and projecting the result back down -- to PPV space.
-This lift is assumed to have a simple description, a one-to-one function convolved with a Gaussian kernel in velocity space.
-The fourth assumption is that voxels in PPD space that share a $\glon$ or $\glat$ boundary have similar central line-of-sight velocities.
+Despite the fact that its underlying assumptions do not hold over much of the solution domain, KT produces a $\vlos(\glon, \glat, d)$ solution that quantitatively agrees with independent $\vlos(\glon, \glat, d)$ observations (see \S \ref{sec:KT-validation}).
+The heuristic prediction that if our assumptions do not hold, our solution will be inaccurate is in conflict with the empirical result that it is.
+We can resolve this conflict by concluding that the assumptions, as stated, are too strict or by arguing that the comparison observations are atypical.
 
-These assumptions fail to hold, to different degrees, in the actual case we are applying the procedure to. 
-The reddening-to-matter and $\atomH$- and CO-to-matter conversion is not a single linear relationship due to both variations in physical quantities such as the dust-to-gas ratio and non-linearities in the function relating the amount of matter to the amount of reddening or flux (e.g. $\atomH$ self-absortion). 
-The PPV cube includes matter on the far side of the Galaxy while the PPD cube stops at or before the level of the Galactic center.
-The PPV cube cannot be a reprojection of the PPD cube if the two are not tracing the same matter. 
-Furthermore, there will be voxels in the PPD cube where the lift to PPDV space is not the simple one we have assumed.
-Finally, since the velocity field of the ISM does not have to be smooth or even continuous, the first due to the influence of departures from axisymmetry such as the Galactic bar and the second due to the fact that the ISM can contain shocks.
+The fact that all of the poorly-reproduced HMSFRs lie in the inner Galaxy (see \S \ref{sec:discussion-catastrophic}), where our assumptions tend to not be met more often and more egregiously than in the outer Galaxy, lends credence to the first resolution. 
+Perhaps KT is robust to some level of its assumptions not being met and this level is only reached in some parts of the particularly challenging inner Galaxy. 
+As an example of the extent to which the inner Galaxy does not meet our assumptions, consider the fact that the maximum distance from the Sun to which the PPD cube is accurate to in the inner Galaxy is approximately 5 kpc \citep{Green_2015} while the PPV cube is integrated out to the far edge of the Galaxy. 
 
-Despite the many ways in which these assumptions can and almost certainly do break, we have been able to empirically confirm that the solution is quite accurate (see Section \ref{sec:KT-validation}). 
-Evidently, the KT procedure is robust to some bending of its underlying assumptions.
-Judging by the clustering of outlier HMSFRs in the inner Galaxy, there are some parts of the Galaxy where the assumptions are bent enough to start to cause problems.
-In particular, the inner Galaxy is particularly likely to have mismatches between the PPD and PPV and complicated, rapidly spatially variable velocity fields.
-Even there, KT does not completely and utterly fail -- the error rate is $\sim 30 \%$, not $\sim 100 \%$.
-The inner Galaxy falls into a gray region in the parameter space of assumption bending where there is just enough of it to noticeably, but not absolutely, degrade the solution quality.
+The other possible resolution, that the comparison observations are atypical, seems unlikely considering the qualitative structure of the solution (see \S \ref{sec:discussion-qualitative}) but cannot yet be ruled out empirically. 
+The comparison observations are of HMSFRs, which by definition will be associated with large overdensities of molecular gas. 
+It is possible that the check we have performed in \S \ref{sec:KT-validation} only applies to dense molecular gas.
+For example, KT could merely be finding the most massive object along a sightline through the PPD cube and associating it with the most massive objective in the corresponding sightline through the PPV cube. 
+This would usually correctly assign a distance and velocity to something like a GMC but would fail for less concentrated neutral gas. 
+However, it would be difficult to reconcile the clear and non-trivial larger-scale velocity structure seen in the previous section with a scenario in which the KT solution is only correct at extreme overdensities. 
 
-The 30\% mentioned above is the error rate specifically among PPD voxels that contain HMSFRs.
-These are not necessarily typical voxels. 
-The error rate of an arbitrary inner Galaxy voxel could potentially be quite different. 
-While we may expect the error rate of a voxel that contains an HMSFR and others near it to be similar, this is merely a heuristic argument.
-This argument is also not useful for parts of the space that are not near HMSFRs.
-The HMSFRs are all in dense molecular gas within a few tens of parsecs of the Galactic plane. There is very little we can say about the error rate in diffuse gas, especially at high Galactic latitudes. 
-
-To get a quantitative and more broadly applicable estimate of the error rate, we would need either a less density-biased set of independent $\vlos(\glon, \glat, d)$ measurements or a set of artificial injection tests. 
+To get a more quantitative and broadly applicable understanding of when KT works and fails, we would need either a less density-biased set of independent $\vlos(\glon, \glat, d)$ measurements or a set of artificial injection tests. 
 By an "artificial injection test", we mean a numerical experiment in which we artificially observe a model galaxy's ISM, reconstruct the $\vlos$ field from these artificial observations using KT, and compare the reconstructed and input model $\vlos$ fields. 
 To the best of our knowledge, there are no currently available catalogs of these sorts of less density-biased measurements, ruling out option one.
 The steps involved in artificial injection tests, particularly simulating galaxies at sufficiently high resolution and producing artificial observations in a way that includes the non-trivial systematics in the actual observations, are complicated enough to put option two beyond the scope of this work.
@@ -41,4 +44,4 @@ Both of these options are plausible directions for future work.
 The 1.527 $\mu$m diffuse interstellar band (DIB), for instance, has been mapped over much of the northern sky by the APOGEE survey \citep{2015ApJ...798...35Z}. 
 Observations of this DIB towards APOGEE stars with known distances could potentially be used to build catalogs or even maps of $\vlos(\glon, \glat, d)$ using an independent dataset. 
 Artificial injection tests are conceptually straightforward, though they do require a substantial investment of time and computational resources.
-While neither option is easy, we would argue that some combination of the two will be necessary before the KT-derived $\vlos$ map can be trusted away from the HMSFRs of \Reid.
+While neither option is easy, we would argue that some combination of the two will be necessary before the KT-derived $\vlos$ map can be trusted away from the HMSFRs of \Reid{}.
