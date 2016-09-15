@@ -5,11 +5,10 @@ SectionData.tex
 figures/KT_method_diagram_paper3/KT_method_diagram_paper3.png
 SectionKTMethods.tex
 figures/maser_comparison/maser_comparison.png
-figures/maser_pie_ann/maser_pie_ann.png
 SectionKTChecking.tex
-figures/maser_pie/maser_pie_ann.png
 figures/HMSFR_outliers/HMSFR_outliers.png
 subsection_Catastrophic_outliers_label_sec__.tex
+figures/maser_pie_ann/maser_pie_ann.png
 SectionDiscussion.tex
 SectionConclusion.tex
 section_Acknowledgements_This_material_is__.tex
