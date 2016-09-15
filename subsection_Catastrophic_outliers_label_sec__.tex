@@ -1,35 +1,25 @@
 \subsection{Catastrophic outliers}
 \label{sec:discussion-catastrophic}
 In this section, we discuss the five HMSFRs where the KT-derived and directly observed $\vlos$ values are clearly inconsistent.
-
-Panel (a) of Figure \ref{fig:outliers} shows the distribution of standardized residuals of the full 99 HMSFR sample along with a scaled standard normal distribution.
-There are five HMSFRs that are clearly separate from the rest. 
-These five are indicated in red in all four panels of the figure.
-We will refer to these five as \emph{the outliers}.
-
-
-
-We have not been able to find an obvious reason for why these five HMSFRs, specifically, are outliers. 
-None of their properties are extreme -- they are not all clumped together; they are not particularly close to or far from the Sun; the total dust and gas columns along their sightlines are typical for HMSFRs in their vicinity; they are reasonably close to their nearest neighbors, none of which are outliers; the differences between their measured $\vlos$ values and those of their close neighbors are reasonable, as are the differences between the magnitudes of their velocity three-vectors; they do not all sit in the same spiral arm (\Reid{}). 
-There is no clear distinction between an outlier and its non-outlier neighbors. 
-
-While there does not appear to be a way to predict whether a \emph{specific} HMSFR will be an outlier, we have found that HMSFRs with $0^\circ < \glon < 35^\circ$ and Galactocentric radii ($\RGC$) between 3 and 6 kpc are more likely to be outliers. 
-The distributions of outlier and non-outlier $\glon$ and $\RGC$ are shown in panels (b) and (c) of Figure \ref{fig:outliers}; their locations in the Galactic plane are shown in panel (d).
-By visual inspection, the outliers' $\glon$ and $\RGC$ distributions clearly deviate from those of the full sample.
+The distribution of standardized residuals of the HMSFR sample is shown in panel (a) of Figure \ref{fig:outliers}; the five outlier HMSFRs are marked in red.
+The reason why these five HMSFRs, specifically, are outliers seems to be that they are located in a particularly complex and confused part of the Galaxy.
+From panels (b), (c), and (d) of the same Figure, one can see that all of the outliers are in the inner Galaxy and relatively close to the Galactic center, at $0^\circ < \glon < 35^\circ$ and $\RGC < 6\text{ kpc}$. 
+If we compare the distributions of all HMSFRs and outlier HMSFRs in $\glon$ and $\RGC$, it should be apparent that the distribution of outliers does not follow the distribution of all HMSFRs.
 
 We can quantify this deviation by assuming that any HMSFR is equally likely to be one of the five outliers and computing the probability of finding all five in a randomly chosen subsample of the same size as one of our two selections.
 Since a single HMSFR can not be present in a sample twice, the appropriate distribution to use for this calculation is the hypergeometric distribution, which assumes that the subsample is chosen without replacement.
 The probability of finding all five outliers in a random subsample the size of either of the two selections is, in both cases, much less than 1\%.
 
-Since every HMSFR in the $\RGC$ selection is also in the $\glon$ selection, this calculation does not tell us which selection is responsible for the enhanced probability of being an outlier.
-To try to differentiate between the two, we can repeat the above exercise with the $\RGC$ selection as the subsample and the $\glon$ selection, rather than the full set of 99 HMSFRs, as the population. 
-The probability of finding all five outliers in a random 17-element subsample of the 31-element $\glon$ selection is about 4\%. 
-This probability is low, certainly low enough to suggest that there may be an enhancement in the outlier rate in the $\RGC$ selection over the $\glon$ selection's rate, but not low enough for this to be a strong conclusion.
-This conclusion is particularly weak considering that we have neglected the distance and outlier/non-outlier classification uncertainties.
+The implication of this difference in distribution is that there is an actual enhancement in the rate at which KT produces incorrect solutions for sightlines that pass near the Galactic center. 
+There are three main reasons why KT would be less accurate along a sightline at low $\glon$.
+Firstly, these sightlines pass through more matter, due to both the increase in ISM surface density at low $\RGC$ and the fact that geometrically, a sightline at low $\glon$ will pass through more of the far side of the Galaxy.
+Having more matter along a sightline increases the complexity of the problem --- more parcels of ISM in PPD space have to be correctly associated with velocity components in PPV space.
+Secondly, due in part to the increase in ISM surface density with decreasing $\RGC$, the well-measured part of the PPD cube does not extend as far towards the inner Galaxy as it does towards the outer Galaxy \citep{Green_2015}. 
+If the PPD cube is not accurate past some distance, then we are unlikely to obtain a correct solution past that distance.
+Thirdly, the Galactic bar can stir interstellar matter up, inducing a complicated velocity field with lots of structure on small spatial scales. 
+Given that the distance extent of PPD voxels near the inner Galaxy is of order a kpc, we could simply have insufficient spatial resolution to map this bar-induced velocity field. 
 
-We have attempted to distinguish between the two selections because they suggest different causal explanations for the increased likelihood of being an outlier. 
-If being in the $\glon$ selection is responsible for most of the effect, the likely cause is increased line-of-sight confusion. 
-The closer to $\glon$ of $0^\circ$ a sightline passes, the more matter it typically intersects near the Galactic center and, assuming the Galactic disk is roughly circular, the more matter it passes through on the opposite side of the Galaxy. 
-If instead it is being in the $\RGC$ selection that matters, the cause is likely to be the complexity of ISM dynamics near the Galactic center.
-The distance resolution of the PPD cube declines with distance, so it would not necessarily be surprising if we were unable to spatially resolve flows with small spatial scales.
-These flows could be caused by stirring by the end of the Galactic bar, which is generally considered to fall right in the middle of the five outliers \cite{2016arXiv160207702B}.
+Two of these three reasons are caused by being at low $\glon$ while the other is caused by being in a specific $\RGC$ range. 
+To try to differentiate between the two possible causes, we can repeat the quantitative exercise described above with the $\RGC$ selection as the subsample and the $\glon$ selection, rather than the full set of 99 HMSFRs, as the population. 
+The probability of finding all five outliers in a random 21-element subsample of the 31-element $\glon$ selection is about 11\%. 
+This probability is low but not unreasonable; we cannot differentiate between the two causes in this way.
