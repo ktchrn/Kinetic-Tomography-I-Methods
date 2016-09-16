@@ -91,9 +91,9 @@ We encode this expectation into a regularized objective function, $\mathcal{L}_r
   \label{eqn:obj_reg}
   \begin{split}
   \mathcal{L}_r\left(\vlos(x, y, i), \sigma_v(x, y, i) \right) = 
-  \mathcal{L}_u \left(\vlos(x, y, i), \sigma_v(x, y, i) \right) \\
-  &+ \frac{\lambda}{2} \sum_{x, y} \left( \vlos(x + 1, y, i) - \vlos(x, y, i) \right)^2 \\
-  &+ \frac{\lambda}{2} \sum_{x, y} \left( \vlos(x, y + 1, i) - \vlos(x, y, i) \right)^2,
+  \mathcal{L}_u & \left(\vlos(x, y, i), \sigma_v(x, y, i) \right) + \\
+  & \frac{\lambda}{2} \sum_{x, y} \left( \vlos(x + 1, y, i) - \vlos(x, y, i) \right)^2 +\\
+  & \frac{\lambda}{2} \sum_{x, y} \left( \vlos(x, y + 1, i) - \vlos(x, y, i) \right)^2,
   \end{split}
 \end{equation}
 where $\lambda$ is a parameter that sets the strength of the regularizing term. 

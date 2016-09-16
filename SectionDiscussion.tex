@@ -3,50 +3,50 @@
 \subsection{Qualitative features of the solution}
 \label{sec:discussion-qualitative}
 We have established that KT is, quantitatively-speaking, correct at the locations of 94 dense, star-forming knots of interstellar matter and we have found a heuristic explanation for why KT is quite incorrect at the locations of 5 other dense, star-forming knots of interstellar matter.
-Given the lack of other published $\vlos(\glon, \glat, d)$ measurements, we cannot quantitatively establish that our $\vlos(\glon, \glat, d)$ cube is also correct away from these 99 locations.
+Given the lack of other published $\vlos(\glon, \glat, d)$ measurements, we cannot quantitatively establish that our $\vlos(\glon, \glat, d)$ 3-cube is also correct away from these 99 locations.
 There is, however, the previously published two-dimensional peculiar velocity map of \citet{1993A&A...275...67B}.
 
 A two-dimensional peculiar velocity field derived from the KT solution is shown in Figure \ref{fig:maser_pie}.
-This peculiar velocity field is derived by subtracting the line-of-sight velocity field corresponding to a flat rotation curve from the $\vlos(\glon, \glat, d)$ cube and taking the mass-weighted average of this peculiar velocity cube along the $\glat$ axis over the range $-2.5^\circ \leq \glat \leq +2.5^\circ$.
+This peculiar velocity field is derived by subtracting the line-of-sight velocity field corresponding to a flat rotation curve from the $\vlos(\glon, \glat, d)$ 3-cube and taking the mass-weighted average of this peculiar velocity 3-cube along the $\glat$ axis over the range $-2.5^\circ \leq \glat \leq +2.5^\circ$.
 The peculiar velocity field of \citet{1993A&A...275...67B} is shown in Figure 10 of their paper. 
 Qualitatively, the two peculiar velocity fields are quite similar. 
 The locations, extents, and signs of regions of coherent peculiar velocity are, for the most part, the same in both maps. 
 There are, however, some differences in the magnitudes of peculiar velocities in these regions.
 
 We can also qualitatively compare the typical scale of coherent velocity fluctuations in our two-dimensional peculiar velocity field to measurements of this scale from the literature. 
-Much of the power in the peculiar velocity field of disc gas (e.g. \citealt{Clemens_1985}) and disc stars (e.g. \citealt{2015ApJ...800...83B}) is found on scales of about 2 kpc.
+Much of the power in the peculiar velocity field of disc gas (e.g. \citealt{Clemens:1985dp}) and disc stars (e.g. \citealt{2015ApJ...800...83B}) is found on scales of about 2 kpc.
 This is consistent, at least by eye, with the typical extent of a coherent peculiar velocity fluctuation in our two-dimensional peculiar velocity field.
 
-Figure \ref{fig:maser_pie} also shows the line-of-sight velocities at the $\glon$, $\glat$, and $d$ of HMSFRs according to our $\vlos(\glon, \glat, d)$ cube and the actual observations.
+Figure \ref{fig:maser_pie} also shows the line-of-sight velocities at the $\glon$, $\glat$, and $d$ of HMSFRs according to our $\vlos(\glon, \glat, d)$ 3-cube and the actual observations.
 All of the HMSFRs are in $\glat$ range we averaged over to produce our two-dimensional peculiar velocity field, but there are clear differences between the observed HMSFR line-of-sight velocities and the two-dimensional velocity field. 
 If we assume the two-dimensional velocity field is, for the most part, correct, then these differences imply peculiar velocity fluctuations on spatial scales of order the typical height off the plane of an HMSFR, or 10-100 pc. 
-The same differences, in most cases, are also seen in the velocities assigned based on our $\vlos(\glon, \glat, d)$ cube. 
+The same differences, in most cases, are also seen in the velocities assigned based on our $\vlos(\glon, \glat, d)$ 3-cube. 
 Combining these facts, we can heuristically conclude that we are more-or-less correctly detecting peculiar velocity fluctuations on both large, multi-kpc scales and small, 100 pc scales. 
 
 \subsection{Unmet assumptions and their potential consequences}
 \label{sec:discussion-systematics}
-Our treatment of the data, our parametrization of the 4-dimensional structure of the ISM, and our regularization scheme are all based on assumptions that almost certainly do not hold everywhere. 
+Our treatment of the data, our parametrization of the 4-dimensional structure of the ISM, and our regularization scheme are all based on assumptions that are not always met.
 We convert our distributions of reddening, $\atomH$ emission, and $\CO$ emission to distributions of absolute matter content in PPV and PPD space assuming there is a single, linear function relating the amount of each tracer to an amount of matter.
 Due to variations in the dust-to-gas and \CO-to-\molH ratios and radiative transfer effects such as self-absorption, these functions are neither uniqiuely defined nor linear. 
-We have implicitly assumed that the PPD and PPV cubes are projections of the same part of the same PPDV cube. 
-This is quite obviously not the case --- the PPV cube is an integral of the PPDV cube to an effectively infinite distance while the most distant well-measured voxels in the PPD cube are only $\sim 10 \text{ kpc}$ away from the Sun (GSF).
+We have implicitly assumed that the PPD and PPV 3-cubes are projections of the same part of the same PPDV 4-cube. 
+This is not the case --- the PPV 3-cube is an integral of the PPDV 4-cube to an effectively infinite distance while the most distant well-measured voxels in the PPD 3-cube are only $\sim 10 \text{ kpc}$ away from the Sun (GSF).
 Our parametrization of the 4-dimensional structure of the ISM assumes that the ISM's velocity distribution within a PPD voxel can be described by a mean, which is close to the value of the Galactic rotation curve at the voxel's center, and a dispersion.  
 This will not be true for a voxel that contains a shock or is large compared to the spatial scale of velocity fluctuations; because our distance resolution is constant in log space, this is effect will apply to all voxels beyond some distance. 
 Our regularization scheme assumes that the velocity distributions of voxels with shared $\glon$ or $\glat$ boundaries will be similar. 
 This will once again not be true of voxels that cross shocks or are sufficiently large. 
 
-Despite the fact that its underlying assumptions do not hold over much of the solution domain, KT produces a $\vlos(\glon, \glat, d)$ solution that quantitatively agrees with independent $\vlos(\glon, \glat, d)$ observations (see \S \ref{sec:KT-validation}).
-The heuristic prediction that if our assumptions do not hold, our solution will be inaccurate is in conflict with the empirical result that it is.
+Despite the fact that its underlying assumptions do not hold over some of the solution domain, KT produces a $\vlos(\glon, \glat, d)$ solution that quantitatively agrees with independent $\vlos(\glon, \glat, d)$ observations (see \S \ref{sec:KT-validation}).
+%The heuristic prediction that if our assumptions do not hold, our solution will be inaccurate is in conflict with the empirical result that it is.
 We can resolve this conflict by concluding that (1) the assumptions, as stated, are too strict or by arguing that (2) the particular set of $\vlos(\glon, \glat, d)$ observations are not representative of the ISM as a whole.
 
 The fact that all of the poorly-reproduced HMSFRs lie in the inner Galaxy (see \S \ref{sec:discussion-catastrophic}), where our assumptions tend to not be met more often and more egregiously than in the outer Galaxy, lends credence to the resolution (1). 
-Perhaps KT is robust to some level of its assumptions not being met and this level is only exceeded in some parts of the particularly challenging inner Galaxy. 
-As an example of the extent to which the inner Galaxy does not meet our assumptions, consider the fact that the maximum distance from the Sun to which the PPD cube is accurate to in the inner Galaxy is approximately 5 kpc \citep{Green_2015} while the PPV cube is integrated out to the far edge of the Galaxy. 
+Perhaps KT is robust to some level of its assumptions not being met and this level is only exceeded in some parts of the inner Galaxy. 
+As an example of the extent to which the inner Galaxy does not meet our assumptions, consider the fact that the maximum distance from the Sun to which the PPD 3-cube is accurate to in the inner Galaxy is approximately 5 kpc GSF while the PPV 3-cube is integrated out to the far edge of the Galaxy. 
 
 Resolution (2), that the comparison observations are atypical, seems unlikely considering the qualitative structure of the solution (see \S \ref{sec:discussion-qualitative}) but cannot yet be ruled out empirically. 
 The comparison observations are of HMSFRs, which by definition will be associated with large overdensities of molecular gas. 
 It is possible that the check we have performed in \S \ref{sec:KT-validation} only applies to dense molecular gas.
-For example, KT could merely be finding the most massive object along a sightline through the PPD cube and associating it with the most massive objective in the corresponding sightline through the PPV cube. 
+For example, KT could merely be finding the most massive object along a sightline through the PPD 3-cube and associating it with the most massive objective in the corresponding sightline through the PPV 3-cube. 
 This would usually correctly assign a distance and velocity to something like a GMC but would fail for less concentrated neutral gas. 
 However, it would be difficult to reconcile the clear and non-trivial larger-scale velocity structure seen in the previous section with a scenario in which the KT solution is only correct at extreme overdensities. 
 
@@ -59,4 +59,4 @@ Both of these options are plausible directions for future work.
 The 1.527 $\mu$m diffuse interstellar band (DIB), for instance, has been mapped over much of the northern sky by the APOGEE survey \citep{2015ApJ...798...35Z}. 
 Observations of this DIB towards APOGEE stars with known distances could potentially be used to build catalogs or even maps of $\vlos(\glon, \glat, d)$ using an independent dataset. 
 Artificial injection tests are conceptually straightforward, though they do require a substantial investment of time and computational resources.
-While neither option is easy, we would argue that some combination of the two will be necessary before the KT-derived $\vlos$ map can be trusted away from the HMSFRs of \Reid{}.
+While neither option is easy, we would argue that some combination of the two will be necessary before the KT-derived $\vlos$ 3-cube can be trusted away from the HMSFRs of \Reid{}.
