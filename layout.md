@@ -1,5 +1,4 @@
 abstract.tex
-abstract.tex
 SectionIntroduction.tex
 figures/gas_compare3/gas_compare3.png
 SectionData.tex
