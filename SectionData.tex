@@ -3,15 +3,15 @@
 \subsection{HI and CO data}
 
 Radio emission lines of $\atomH$ and $\CO$ trace the two dominant constituents of the Galactic ISM, atomic and molecular gas. 
-Ionized phases of the ISM do not contribute significantly to the column density and will therefore contribute negligibly to the extinction measured in \citet{Green_2015}. 
+Ionized phases of the ISM do not contribute significantly to the column density and will therefore contribute negligibly to the extinction measured in GSF. 
 21-cm line emission from the hyperfine transition of $\atomH$ is usually optically thin and its integral is an excellent tracer of $\atomH$ column:
 \begin{equation}\label{XHI}
-N_{HI} = 1.8 \times 10^{18} \rm cm^{-2} \frac{ \int T_B dv}{\rm K~km~s^{-1}}.
+{\rm N(\atomH)} = 1.8 \times 10^{18} \rm cm^{-2} \frac{ \int T_B dv}{\rm K~km~s^{-1}}.
 \end{equation}
-When the 21-cm line becomes optically thick, equation \ref{XHI} will underestimate the $\atomH$ column. 
+When the 21-cm line becomes optically thick, Equation \ref{XHI} will underestimate the $\atomH$ column. 
 However, this mostly happens in $\molH$-dominated regions \citep{Goldsmith_2007}.
 
-We trace molecular gas here using the 115 GHz 1-0 rotational transition of $\CO$. 
+We trace molecular gas using the 115 GHz 1-0 rotational transition of $\CO$. 
 The integral of this emission line can be converted to a $\molH$ column density using the conversion factor \citep{Bolatto_2013}
 
 \begin{equation}\label{XCO}
@@ -21,26 +21,26 @@ X_{CO} = 2.0 \times 10^{20} \rm cm^{-2} \frac{ \int T_B dv}{\rm K~km/s}.
 This conversion factor has a number of known weaknesses stemming from complex excitation and opacity effects and real variation in the relative population of $\CO$ and $\molH$ molecules. 
 We will address the impacts of these weaknesses in \S \ref{sec:discussion-systematics}. 
 
-For our $\CO$ data, we use the interpolated whole-Galaxy PPV cube provided by \citet{Dame_2001}. 
+For our $\CO$ data, we use the interpolated whole-Galaxy PPV 3-cube provided by \citet{Dame_2001}. 
 We post-process these data with a plus-shaped median smoothing kernel to eliminate single-pixel artifacts in the data. 
 This filtering procedure changes the total amount of CO emission by about 5\% over the entire Galaxy. 
-The cube covers the full range in $\glon$ and $-30^\circ$ to $+30^\circ$ in $\glat$. 
-The cube has a radial velocity resolution of $1.3 {\rm \, km~s}^{-1}$ and a velocity range of $-320{\rm \,km~s} ^{-1} < V_{LSR} < 320 \rm{~km~s}^{-1}$. 
-We find that the native resolution and PPV extent of these data are appropriate for our investigation and retain the exact pixelization of these data for our analysis. 
+The 3-cube covers the full range in $\glon$ and $-30^\circ$ to $+30^\circ$ in $\glat$. 
+The 3-cube has a radial velocity resolution of $1.3 {\rm \, km~s}^{-1}$ and a velocity range of $-320{\rm \,km~s} ^{-1} < V_{LSR} < +320 \rm{~km~s}^{-1}$. 
+We find that the native resolution and PPV extent of these data are appropriate for our investigation and retain their exact pixelization for our other datasets.
 
-For our $\atomH$ data, we use a combination of three large-area Galactic $\atomH$ surveys. 
+For $\atomH$ data, we use a combination of three large-area Galactic $\atomH$ surveys. 
 South of declination 0$^\circ$, we use data from the 16$^\prime$ resolution GASS survey \citep{Kalberla_2010}; from declination 0$^\circ$ to 38$^\circ$ we use unpublished data from the 4$^\prime$ resolution GALFA-HI survey \citep{Peek_2011} Data Release 2; North of 38$^\circ$ we default to the 36$^\prime$ resolution LAB Survey \citep{Kalberla_2005}. 
-We regrid these data onto the $7.5^\prime \times 7.5^\prime \times 1.3 {\rm \, km~s}^{-1}$ pixels of the \citet{Dame_2001} $\CO$ map.
+We regrid these data onto the $7.5^\prime \times 7.5^\prime \times 1.3 {\rm \, km~s}^{-1}$ pixels of the \citet{Dame_2001} $\CO$ 3-cube.
 
-The $\atomH$ and $\CO$ emission cubes are converted to ${\rm N}(\atomH)$ and ${\rm N}(\molH)$ cubes using equations \ref{XHI} and \ref{XCO}; these two column density cubes are then added to make a single $\mathrm{N_H}$ data cube.
+The $\atomH$ and $\CO$ emission 3-cubes are converted to ${\rm N}(\atomH)$ and ${\rm N}(\molH)$ 3-cubes using Equations \ref{XHI} and \ref{XCO}. These two column density 3-cubes are then added to make a single $\mathrm{N_H}$ data 3-cube.
 
 
 \subsection{Dust data}
 
-Our extinction cube is derived from the GSF reddening data. 
+Our extinction 3-cube is derived from the GSF reddening data. 
 GSF use PanSTARRS photometry of 800 million stars to infer the cumulative reddening along the line of sight in 6.8$^\prime$ (NSIDE=512 HEALPix) pixels.
-The distance information provided by the \citet{Green_2015} map is in steps of half a distance modulus, from 63 pc to 63 kpc. 
-We regrid these data onto the \citet{Dame_2001} $\glon$-$\glat$ grid and difference them in distance to find the reddening between each distance modulus. 
+The distance axis of the GSF 3-cube is in steps of half a distance modulus, from 63 pc to 63 kpc. 
+We regrid these data onto the \citet{Dame_2001} $\glon$-$\glat$ grid and difference them in distance to find the reddening between each distance step. 
 This differential reddening is then converted to an ${\rm N_H}$ using the factor measured in \citet{Peek_2013}, 
 
 \begin{equation}
