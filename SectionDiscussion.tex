@@ -25,11 +25,11 @@ Combining these facts, we can heuristically conclude that we are more-or-less co
 
 \subsection{Unmet assumptions and their potential consequences}
 \label{sec:discussion-systematics}
-Our treatment of the data, our parametrization of the 4-dimensional structure of the ISM, and our regularization scheme are all based on assumptions that almost certainly do not hold over some part of the solution domain. 
-We convert our data, distributions of reddening, \atomH{} emission, and \CO emission, to distributions of absolute matter content in PPV and PPD space assuming there is a single, linear function relating the amount of each tracer to an amount of matter.
+Our treatment of the data, our parametrization of the 4-dimensional structure of the ISM, and our regularization scheme are all based on assumptions that almost certainly do not hold everywhere. 
+We convert our distributions of reddening, $\atomH$ emission, and $\CO$ emission to distributions of absolute matter content in PPV and PPD space assuming there is a single, linear function relating the amount of each tracer to an amount of matter.
 Due to variations in the dust-to-gas and \CO-to-\molH ratios and radiative transfer effects such as self-absorption, these functions are neither uniqiuely defined nor linear. 
 We have implicitly assumed that the PPD and PPV cubes are projections of the same part of the same PPDV cube. 
-This is quite obviously not the case --- the PPV cube is an integral of the PPDV cube to an effectively infinite distance while the most distant well-measured voxels in the PPD cube are only 10 kpc away from the Sun.
+This is quite obviously not the case --- the PPV cube is an integral of the PPDV cube to an effectively infinite distance while the most distant well-measured voxels in the PPD cube are only $\sim 10 \text{ kpc}$ away from the Sun (GSF).
 Our parametrization of the 4-dimensional structure of the ISM assumes that the ISM's velocity distribution within a PPD voxel can be described by a mean, which is close to the value of the Galactic rotation curve at the voxel's center, and a dispersion.  
 This will not be true for a voxel that contains a shock or is large compared to the spatial scale of velocity fluctuations; because our distance resolution is constant in log space, this is effect will apply to all voxels beyond some distance. 
 Our regularization scheme assumes that the velocity distributions of voxels with shared $\glon$ or $\glat$ boundaries will be similar. 
@@ -37,13 +37,13 @@ This will once again not be true of voxels that cross shocks or are sufficiently
 
 Despite the fact that its underlying assumptions do not hold over much of the solution domain, KT produces a $\vlos(\glon, \glat, d)$ solution that quantitatively agrees with independent $\vlos(\glon, \glat, d)$ observations (see \S \ref{sec:KT-validation}).
 The heuristic prediction that if our assumptions do not hold, our solution will be inaccurate is in conflict with the empirical result that it is.
-We can resolve this conflict by concluding that the assumptions, as stated, are too strict or by arguing that the comparison observations are atypical.
+We can resolve this conflict by concluding that (1) the assumptions, as stated, are too strict or by arguing that (2) the particular set of $\vlos(\glon, \glat, d)$ observations are not representative of the ISM as a whole.
 
-The fact that all of the poorly-reproduced HMSFRs lie in the inner Galaxy (see \S \ref{sec:discussion-catastrophic}), where our assumptions tend to not be met more often and more egregiously than in the outer Galaxy, lends credence to the first resolution. 
-Perhaps KT is robust to some level of its assumptions not being met and this level is only reached in some parts of the particularly challenging inner Galaxy. 
+The fact that all of the poorly-reproduced HMSFRs lie in the inner Galaxy (see \S \ref{sec:discussion-catastrophic}), where our assumptions tend to not be met more often and more egregiously than in the outer Galaxy, lends credence to the resolution (1). 
+Perhaps KT is robust to some level of its assumptions not being met and this level is only exceeded in some parts of the particularly challenging inner Galaxy. 
 As an example of the extent to which the inner Galaxy does not meet our assumptions, consider the fact that the maximum distance from the Sun to which the PPD cube is accurate to in the inner Galaxy is approximately 5 kpc \citep{Green_2015} while the PPV cube is integrated out to the far edge of the Galaxy. 
 
-The other possible resolution, that the comparison observations are atypical, seems unlikely considering the qualitative structure of the solution (see \S \ref{sec:discussion-qualitative}) but cannot yet be ruled out empirically. 
+Resolution (2), that the comparison observations are atypical, seems unlikely considering the qualitative structure of the solution (see \S \ref{sec:discussion-qualitative}) but cannot yet be ruled out empirically. 
 The comparison observations are of HMSFRs, which by definition will be associated with large overdensities of molecular gas. 
 It is possible that the check we have performed in \S \ref{sec:KT-validation} only applies to dense molecular gas.
 For example, KT could merely be finding the most massive object along a sightline through the PPD cube and associating it with the most massive objective in the corresponding sightline through the PPV cube. 
