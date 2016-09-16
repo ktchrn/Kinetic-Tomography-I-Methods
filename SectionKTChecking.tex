@@ -1,6 +1,6 @@
 \subsection{Checking the KT solution}
 \label{sec:KT-validation}
-The \Reid{} HMSFRs (see \S \ref{sec:data-HMSFR}) are embedded in and, presumably, moving with dense molecular gas.
+The \Reid{} HMSFRs (see \S \ref{sec:data-HMSFR}) are embedded in, born from, and, presumably, moving with dense molecular gas.
 The $\vlos$ of an HMSFR should therefore be similar to the $\vlos$ of the ISM at the HMSFR's location in PPD space.
 We can use this property to check the accuracy of our KT-derived $\vlos(\glon, \glat, d)$ fields by comparing the HMSFRs' observed $\vlos$ to the $\vlos$ KT assigns to the HMSFRs' $\glon$, $\glat$, and $d$ values. 
 In this section, we make this comparison for the $\vlos(\glon, \glat, d)$ fields associated with a flat (i.e. radially constant) rotation curve, a non-flat rotation curve from \citet{Clemens:1985dp}, unregularized KT, and regularized KT. 
@@ -10,17 +10,16 @@ The typical uncertainty on the parallax of a \Reid{} HMSFR is between $5$ and $1
 Following the discussion in \citet{2009ApJ...704.1704B}, we assume that this Gaussian uncertainty propagates to a fractionally equivalent Gaussian uncertainty on the distance.
 We assign a $\vlos$ value $\mu_{i}$ and standard deviation $\sigma_{i}$ to an HMSFR $i$ by drawing possible distance values $d_j$ from $p_i(d)$, computing $\vlos(\glon_{i}, \glat_{i}, d_j)$ for each draw, and computing the mean and standard deviation of these $\vlos(\glon_{i}, \glat_{i}, d_j)$ values. 
 
-In Figure \ref{fig:hmsfr_comparison}, we show a comparison of the HMSFRs' observed $\vlos$ values and $\vlos$ values assigned based on the \citet{Clemens:1985dp} rotation curve, unregularized KT, and regularized KT.
-All values are shown with the $\vlos$ assigned based on a flat rotation curve subtracted off. 
-From the range of the $y$-axis, it should be obvious that the HMSFRs' line-of-sight velocities are  poorly described by a flat rotation curve.
+In Figure \ref{fig:hmsfr_comparison}, we show a comparison of the HMSFRs' observed $\vlos$ values and $\vlos$ values based on the \citet{Clemens:1985dp} rotation curve, unregularized KT, and regularized KT.
+All values are shown with the $\vlos$ values based on the IAU standard flat rotation curve subtracted off. 
+From the range of the $y$-axis, it is clear that the HMSFRs' line-of-sight velocities are  poorly described by a flat rotation curve.
 The \citet{Clemens:1985dp} rotation curve provides a slightly better description of the HMSFRs' line-of-sight velocities.
-The signs of the observation-based and \citet{Clemens:1985dp}-derived residuals from a flat rotation curve are mostly the same; the magnitudes of the residuals, however, can be quite different.
+The signs of the observation-based and \citet{Clemens:1985dp}-derived residuals from a flat rotation curve are mostly the same; the magnitudes of the residuals, however, are typically underestimated.
 Both versions of KT are quite clearly more accurate than either rotation curve.
 The signs and magnitudes of the KT-derived residuals are similar to the observation-based residuals.
-There is a slight improvement from unregularized to regularized KT.
-This improvement is mostly a reduction in the amount of scatter away from the correct residual magnitude. 
+There is a significant improvement from unregularized to regularized KT.
 
-To get a crude quantitative estimate of this improvement, we can compute the reduced $\chi^2$ values of the two sets of velocity estimates. 
+To get a quantitative estimate of this improvement, we can compute the reduced $\chi^2$ values of the two sets of velocity estimates. 
 The reduced $\chi^2$ value is given by the expression
 \begin{equation}
 \chi^2 = \frac{1}{\nu} \sum_i^{\mathclap{\text{\# of HMSFRs}}} \left(\frac{\vlos_i - \mu_i}{\sigma_i} \right)^2, 

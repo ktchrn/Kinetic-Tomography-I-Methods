@@ -2,18 +2,19 @@
 \label{sec:KT}
 We have developed a procedure for deriving the distribution of interstellar matter in position-position-distance-velocity (PPDV) space from measurements of its distribution in position-position-distance (PPD) and position-position-velocity (PPV) space. 
 The technical term for deriving a multi-dimensional distribution from lower-dimensional measurements is \emph{tomographic reconstruction}; in this context, lower-dimensional measurements are called projections. 
-As should be intuitively clear, tomographic reconstruction from two projections is, in general, not possible -- there are many more independent variables than observational constraints. 
+Tomographic reconstruction from two projections is, in general, not possible -- there are many more independent variables than observational constraints. 
 Our procedure for solving our specific case of the tomographic reconstruction problem is based around exploiting some simplifying assumptions about the structure of the ISM in PPDV space to reduce the number of independent variables.
 
-For motivation, we first examine the structural assumptions behind a common technique for reconstructing a PPDV-space ISM distribution from PPV-space measurements alone. 
-The  technique we are referring to here is the widely known kinematic distance method (e.g. \citealt{Levine_2006}), which assigns distances to observed line-of-sight velocities based on an assumed rotation curve and Galactic geometry. 
+For motivation, we first examine the assumptions behind a common technique for reconstructing a PPDV-space ISM distribution from PPV-space measurements alone. 
+This is the widely known kinematic distance method (e.g. \citealt{Levine_2006}), which assigns distances to observed line-of-sight velocities based on an assumed rotation curve and Galactic geometry. 
 While the kinematic distance method is usually presented as a way of converting a PPV-space distribution to a PPD-space, rather than PPDV-space, distribution, the two are equivalent according to the kinematic distance method's underlying assumptions.
 These assumptions can be combined into a single statement: (1) a location in PPD space can be assigned a single line-of-sight velocity (2) according to an assumed rotation curve and Galactic geometry. 
 From these assumptions, it follows that knowing the PPD-space distribution of the ISM is equivalent to knowing its PPDV-space distribution. 
 
-We have PPD-space measurements in addition to PPV-space measurements, allowing us to relax these assumptions. 
-Our version is that (1) a parcel of interstellar matter in PPD space can be assigned a Gaussian distribution of line-of-sight velocities (2) whose center is within a fixed range of the line-of-sight velocity predicted by an assumed rotation curve and Galactic geometry; here, a "parcel" of interstellar matter refers to the contents of a single PPD voxel. 
-For each voxel in a PPD cube, we aim to assign a central line-of-sight velocity $\vlos$ and a line-of-sight Gaussian velocity width $\sigma_v$. 
+We use PPD measurements in addition to PPV measurements, allowing us to relax these assumptions. 
+Our version is that (1) a parcel of interstellar matter in PPD space can be assigned a Gaussian distribution of line-of-sight velocities (2) whose center is within a fixed range of the line-of-sight velocity predicted by an assumed rotation curve and Galactic geometry. 
+Here, a ``parcel'' of interstellar matter refers to the contents of a single PPD voxel. 
+That is to say, we aim to assign a central line-of-sight velocity $\vlos$ and a line-of-sight Gaussian velocity width $\sigma_v$ to each voxel in the PPD cube. 
 With these assumptions, a description of the ISM in PPDV space consists of a description of its PPD-space distribution (the observed PPD cube), a line-of-sight central velocity cube in PPD space ($\vlos(\glon, \glat, d)$), and a line-of-sight velocity width cube in PPD space ($\sigma_v (\glon, \glat, d)$). 
 Thus, we have reduced our original problem of finding a PPDV cube which is consistent with our observed PPD and PPV cubes to finding a $\vlos(\glon, \glat, d)$ and $\sigma_v(\glon, \glat, d)$ pair consistent with our PPV observations.
 
@@ -21,7 +22,8 @@ Thus, we have reduced our original problem of finding a PPDV cube which is consi
 \subsection{Formalism}
 \label{sec:KT-method}
 We are looking for a $\vlos(\glon, \glat, d)$ and $\sigma_v(\glon, \glat, d)$ pair that, when combined with the observed PPD cube, best matches the observed PPV cube. 
-This is an optimization problem; an optimization problem needs an objective function; an objective function needs a quantity to compare to the data. 
+This is an optimization problem. 
+An optimization problem needs an objective function, and an objective function needs a quantity to compare to the data. 
 In our case, that quantity is a model PPV cube.
 
 To obtain a model PPV cube, we produce a PPDV cube and then integrate it along the distance axis. 
@@ -40,7 +42,7 @@ and the matter density at a point, $(\glon, \glat, v)$, in PPV space is
 
 These equations apply for continuous matter density and $\vlos$ fields.
 In our case, all quantities are defined on discrete grids. 
-Instead of a PPD-space matter density $\rho(\glon, \glat, d)$, for example, we have a PPD cube whose entries are total amounts of protons $m(x, y, i)$ inside a voxel centered on $\glon_x$, $\glat_y$, and $d_i$.
+Instead of a PPD-space matter density $\rho(\glon, \glat, d)$, for example, we have a PPD cube whose entries are total masses of protons $m(x, y, i)$ inside a voxel centered on $\glon_x$, $\glat_y$, and $d_i$.
 
 To move from the continuous case to the discrete case, we assume that $\vlos(\glon, \glat, d)$ and $\sigma_v(\glon, \glat, d)$ are constant across voxels and work with integrated quantities instead of densities. 
 Equation \ref{eqn:ppdv_cont} becomes
@@ -69,7 +71,6 @@ We quantify the discrepancy between a model PPV cube, $m(x, y, j)$, and the obse
 \end{equation}
 the sum of square differences between the model and the observations. 
 This is the \emph{unregularized} objective function; hence the subscript $u$ in $\mathcal{L}_u$.
-We will introduce the \emph{regularized} objective function later on. 
 
 We optimize $\mathcal{L}_u$ by varying the entries of $\vlos(x, y, i)$ and $\sigma_v(x, y, i)$. 
 We restrict $\sigma_v(x, y, i)$ to be between $1$ and $15\text{ km sec}^{-1}$. 
@@ -81,12 +82,11 @@ Qualitative features of the cartoon such as the close match between the model an
 This solution is not necessarily unique. 
 While we have reduced the number of parameters in the problem by making assumptions about the structure of the ISM in PPDV space, there are still situations in which different $\vlos(x, y, i)$ cubes produce equivalent $m(x, y, j)$ cubes. 
 For example, if $m(x, y, i) = m(x, y, i')$, then $\vlos(x, y, i)$ and $\vlos(x, y, i')$ are exchangable.
-There are also plenty of other, less obvious, ways in which different parts of the solution can be degenerate; we will not list them here.
 
 To deal with this problem, we introduce external information.
-The $\glon$ and $\glat$ extent of the voxels in the 3-dimensional and 4-dimensional cubes we are considering is quite small --- we resolve coherent structures such as molecular clouds. 
+The $\glon$ and $\glat$ extent of the voxels in the 3-dimensional and 4-dimensional cubes are often smaller than coherent structures such as molecular clouds. 
 We may therefore expect voxels that share a $\glon$ or $\glat$ border to have similar line-of-sight velocities.
-We encode this expectation into the objective function by adding a term penalizing large differences between the line-of-sight velocities of voxels with shared $\glon$ or $\glat$ borders:
+We encode this expectation into a regularized objective function, $\mathcal{L}_r$, by adding a term penalizing large differences between the line-of-sight velocities of voxels with shared $\glon$ or $\glat$ borders:
 \begin{equation}
   \label{eqn:obj_reg}
   \mathcal{L}_r\left(\vlos(x, y, i), \sigma_v(x, y, i) \right) = 
@@ -101,7 +101,7 @@ As before, the qualitative features of the cartoon are realistic.
 The discrepancy between the model and observed PPV cube can indeed increase; we do not consider this to be a problem. 
 
 We evaluate the accuracy of the unregularized and regularized KT-derived $\vlos$ cubes in the next section. 
-For clarity, we will refer to the (still not continuous) discretized cubes as $\vlos(\glon, \glat, d)$. 
+For clarity, we will refer to the discretized cubes as $\vlos(\glon, \glat, d)$. 
 
 %In the introduction, we described our method for mapping the ISM in PPPV space as a kind of inversion of the usual idea of a kinematic distance. Instead of setting the distance of a voxel in a PPV cube based on the voxel's line-of-sight velocity and a rotation curve, set the velocity of a voxel in a PPP cube based on the voxel's distance and a rotation curve. Since a voxel is not a point, we need to assign it a distribution of velocites rather than a single velocity; we use a Gaussian. This operation is shown for all of the voxels along a single line of sight in Figure (first proj). If we apply this operation a large number of sightlines at a single galactic latitude, we get the $\ell$-$v$ map shown in figure (first lv). 
 

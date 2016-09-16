@@ -37,8 +37,8 @@ The $\atomH$ and $\CO$ emission cubes are converted to ${\rm N}(\atomH)$ and ${\
 
 \subsection{Dust data}
 
-Our extinction cube is derived from the \citet{Green_2015} reddening data. 
-\citet{Green_2015} use PanSTARRS photometry of 800 million stars to infer the cumulative reddening along the line of sight in 6.8$^\prime$ (NSIDE=512 HEALPix) pixels. 
+Our extinction cube is derived from the GSF reddening data. 
+GSF use PanSTARRS photometry of 800 million stars to infer the cumulative reddening along the line of sight in 6.8$^\prime$ (NSIDE=512 HEALPix) pixels.
 The distance information provided by the \citet{Green_2015} map is in steps of half a distance modulus, from 63 pc to 63 kpc. 
 We regrid these data onto the \citet{Dame_2001} $\glon$-$\glat$ grid and difference them in distance to find the reddening between each distance modulus. 
 This differential reddening is then converted to an ${\rm N_H}$ using the factor measured in \citet{Peek_2013}, 
@@ -51,7 +51,6 @@ This differential reddening is then converted to an ${\rm N_H}$ using the factor
 \subsection{High-mass star forming region data}
 \label{sec:data-HMSFR}
 To check the accuracy of our method, we need measurements of the line-of-sight velocities and distances of clouds of gas. 
-\Reid{} have measured the line-of-sight velocities, proper motions, and trigonometric parallaxes of water and methanol masers associated with 103 high-mass star forming regions (HMSFRs). 
-Of these 103, 99 fall inside the footprint of the \citet{Green_2015} reddening data. 
+\citet{Reid:2014km}(henceforth \Reid{}) have measured the line-of-sight velocities, proper motions, and trigonometric parallaxes of water and methanol masers associated with 103 high-mass star forming regions (HMSFRs). 
+Of these 103, 99 fall inside the footprint of the GSF reddening data. 
 We adopt the line-of-sight velocities, velocity uncertainties, and parallaxes of these 99 HMSFRs as stated in Table 1 of \Reid{}. 
-Following the discussion in \citet{2009ApJ...704.1704B}, we assume that the fractional distance uncertainties are equal to the fractional parallax uncertainties. 
